@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>허가 변경 서류 안내 가이드 v1.1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+        header {
+            background: #ffffff;
+            color: #2c3e50;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .source-info {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 0.9em;
+            color: #6c757d;
+            font-weight: 600;
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 900;
+            color: #2c3e50;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .subtitle-decoration {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sparkle {
+            font-size: 1.1em;
+            color: #007bff;
+        }
+
+        .guideline-info {
+            font-size: 1em;
+            color: #6c757d;
+            margin-top: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .download-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .download-section p {
+            margin-bottom: 15px; 
+            font-weight: 600;
+            color: #495057;
+            font-size: 1.1em;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #495057;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #e9ecef;
+            font-size: 0.95em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #007bff;
+            color: #007bff;
+        }
+
+        .chat-container {
+            padding: 40px;
+        }
+
+        /* 변경 종류 선택 섹션 */
+        .change-types-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .change-types-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .change-type-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .change-type-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #007bff;
+        }
+
+        .change-type-card.selected {
+            border-color: #007bff;
+            background: #f8f9fa;
+            box-shadow: 0 8px 25px rgba(0,123,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 0.95em;
+            color: #6c757d;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .card-chip {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e9ecef;
+            color: #495057;
+            font-size: 0.8em;
+            font-weight: 600;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-chip.완제의약품 {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .card-chip.원료 {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .card-chip.제조소 {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .card-chip.공정 {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .card-chip.dmf {
+            background: #e2e3f1;
+            color: #383d41;
+        }
+
+        /* 나머지 스타일들 */
+        .chat-messages {
+            max-height: 350px;
+            overflow-y: auto;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        .message {
+            margin-bottom: 15px;
+        }
+        .bot-message .message-content {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 15px 20px;
+            border-radius: 18px 18px 18px 4px;
+            max-width: 85%;
+            display: inline-block;
+            font-weight: 500;
+        }
+        .user-message {
+            text-align: right;
+        }
+        .user-message .message-content {
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 18px 18px 4px 18px;
+            max-width: 85%;
+            display: inline-block;
+            font-weight: 500;
+        }
+        .main-menu, .sub-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .menu-btn {
+            border: 2px solid #e9ecef;
+            padding: 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            text-align: left;
+            font-weight: 600;
+            background: #ffffff;
+            color: #495057;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .menu-btn:nth-child(1) {
+            border-left: 4px solid #ffc107;
+        }
+        .menu-btn:nth-child(2) {
+            border-left: 4px solid #28a745;
+        }
+        .menu-btn:nth-child(3) {
+            border-left: 4px solid #dc3545;
+        }
+        .menu-btn:nth-child(4) {
+            border-left: 4px solid #007bff;
+        }
+        .menu-btn:nth-child(5) {
+            border-left: 4px solid #6f42c1;
+        }
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #007bff;
+        }
+        .menu-btn.selected {
+            border: 2px solid #007bff;
+            background: #f8f9fa;
+            box-shadow: 0 8px 25px rgba(0,123,255,0.2);
+            transform: translateY(-3px);
+        }
+        .conditions-check {
+            background: #fff8e1;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #ffecb3;
+        }
+        .condition-item {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff9800;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .condition-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .condition-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+        .condition-btn.yes {
+            background: #28a745;
+            color: white;
+        }
+        .condition-btn.no {
+            background: #dc3545;
+            color: white;
+        }
+        .condition-btn.selected {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .requirements {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #c8e6c9;
+        }
+        .requirements h3 {
+            color: #2e7d32;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        .requirement-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-weight: 500;
+        }
+        .requirement-item.highlight {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .navigation {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .navigation button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+        #resetBtn {
+            background: #17a2b8;
+            color: white;
+        }
+        #backBtn {
+            background: #6c757d;
+            color: white;
+        }
+        .navigation button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .alert {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .alert.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* 컴퓨터 화면 최적화 */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1400px;
+            }
+            .main-menu, .sub-menu {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .chat-container {
+                padding: 50px;
+            }
+            header {
+                padding: 50px 50px 40px 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .change-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+#exportExcelBtn {
+  background: #28a745;
+  color: white;
+  display: none;
+}
+.navigation {
+  align-items: center;
+  flex-wrap: wrap;
+}
+.export-meta-section {
+  display: none;
+  margin-top: 20px;
+  padding: 22px;
+  background: linear-gradient(180deg, #fbfdff 0%, #f7f9fc 100%);
+  border: 1px solid #dde6ef;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(44, 62, 80, 0.06);
+}
+.export-meta-title {
+  font-size: 1.12em;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 16px;
+  letter-spacing: -0.2px;
+}
+.export-meta-subtitle {
+  color: #6c757d;
+  font-size: 0.95em;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.export-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.export-meta-item label {
+  display: block;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 8px;
+  font-size: 0.98em;
+}
+.export-meta-item input,
+.export-meta-item textarea {
+  width: 100%;
+  border: 1.5px solid #cfd8e3;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1f2d3d;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+}
+.export-meta-item input {
+  min-height: 52px;
+}
+.export-meta-item textarea {
+  min-height: 128px;
+  resize: vertical;
+  line-height: 1.55;
+}
+.export-meta-item input:focus,
+.export-meta-item textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+@media (min-width: 900px) {
+  .export-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="source-info">RA&MA팀 제작 · v1.1</div>
+            <h1>허가 변경 서류 안내 가이드</h1>
+            <div class="subtitle-decoration">
+                <p>허가 변경에 필요한 서류를 단계별로 안내해드립니다</p>
+            </div>
+            <div class="guideline-info">
+                본 변경은 '식약처 허가 후 제조방법 변경관리 가이드라인(2025)'기반으로, 전문의약품이 해당됩니다
+            </div>
+            <div class="download-section">
+                <p>📋 참고자료 보기</p>
+                <a href="https://www.mfds.go.kr/docviewer/skin/doc.html?fn=20251112070550369.pdf&rs=/docviewer/result/data0011/15753/1/202603" 
+                   target="_blank" class="download-btn">
+                    📄 의약품 허가 후 제조방법 변경관리 가이드라인
+                </a>
+                <a href="https://www.mfds.go.kr/docviewer/skin/doc.html?fn=20251119085241146.pdf&rs=/docviewer/result/data0011/15761/2/202603" 
+                   target="_blank" class="download-btn">
+                    📄 한약(생약)제제 허가 후 제조방법 변경 관리 가이드라인
+                </a>
+                <a href="https://www.mfds.go.kr/docviewer/skin/doc.html?fn=20250602114444771.pdf&rs=/docviewer/result/data0011/15666/2/202603" 
+                   target="_blank" class="download-btn">
+                    📄 의약품동등성시험 가이드라인
+                </a>
+            </div>
+        </header>
+        <div class="chat-container">
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">안녕하세요! 어떤 종류의 변경을 진행하시나요?</div>
+                </div>
+            </div>
+
+            <!-- 변경 종류 선택 섹션 -->
+            <div class="change-types-section" id="changeTypesSection">
+                <h2 class="section-title">변경 종류 선택</h2>
+                <p class="section-subtitle">해당하는 변경 유형을 선택해주세요</p>
+                
+                <div class="change-types-grid" id="mainMenu">
+                    <div class="change-type-card" onclick="selectChangeType('기준변경')">
+                        <div class="card-icon">📋</div>
+                        <h3 class="card-title">기준 및 시험방법 변경</h3>
+                        <p class="card-description">완제의약품 기준/시험법의 변경</p>
+                        <span class="card-chip 완제의약품">완제의약품</span>
+                    </div>
+                    
+                    <div class="change-type-card" onclick="selectChangeType('주성분제조원변경')">
+                        <div class="card-icon">🏭</div>
+                        <h3 class="card-title">주성분 제조원 변경</h3>
+                        <p class="card-description">원료의약품 제조원/제조공정 변경</p>
+                        <span class="card-chip 원료">원료</span>
+                    </div>
+                    
+                    <div class="change-type-card" onclick="selectChangeType('완제제조원변경')">
+                        <div class="card-icon">🏢</div>
+                        <h3 class="card-title">완제 제조원 변경</h3>
+                        <p class="card-description">완제의약품 제조소 변경</p>
+                        <span class="card-chip 제조소">제조소</span>
+                    </div>
+                    
+                    <div class="change-type-card" onclick="selectChangeType('제조방법변경')">
+                        <div class="card-icon">⚙️</div>
+                        <h3 class="card-title">제조방법 변경</h3>
+                        <p class="card-description">완제의약품 제조공정 변경</p>
+                        <span class="card-chip 공정">공정</span>
+                    </div>
+                    
+                    <div class="change-type-card" onclick="selectChangeType('DMF연차보고')">
+                        <div class="card-icon">📊</div>
+                        <h3 class="card-title">DMF 연차보고</h3>
+                        <p class="card-description">DMF 변경등록/보고</p>
+                        <span class="card-chip dmf">DMF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-menu" id="subMenu" style="display: none;"></div>
+            <div class="conditions-check" id="conditionsCheck" style="display: none;"></div>
+            <div class="requirements" id="requirements" style="display: none;"></div>
+            <div class="navigation">
+ <button id="resetBtn" onclick="resetChat()">홈으로</button>
+ <button id="backBtn" onclick="goBack()" style="display: none;">이전 단계</button>
+ <button id="exportExcelBtn" onclick="exportCurrentResultToExcel()" style="display: none;">엑셀로 저장</button>
+</div>
+<div class="export-meta-section" id="exportMetaSection" style="display: none;">
+  <div class="export-meta-title">엑셀 저장을 위한 과제 개요</div>
+  <div class="export-meta-subtitle">엑셀 파일 상단에 함께 정리할 과제/업무 정보를 입력해주세요.</div>
+  <div class="export-meta-grid">
+    <div class="export-meta-item">
+      <label for="taskNameInput">과제/업무명</label>
+      <input type="text" id="taskNameInput" placeholder="예: Losartan 제조원 추가 검토">
+    </div>
+    <div class="export-meta-item">
+      <label for="taskSummaryInput">업무개요</label>
+      <textarea id="taskSummaryInput" placeholder="예: Lorsartan 공급처 이슈로 제조원으로 OOO상 원료 추가를 검토중"></textarea>
+    </div>
+  </div>
+</div>
+        </div>
+    </div>
+
+    <script>
+        var currentStep = 'main';
+        var selectedChangeType = '';
+        var selectedSubType = '';
+        var selectedDrugType = '';
+        var conditionResults = [];
+        
+        var changeData = {
+            "기준변경": {
+                title: "기준 및 시험방법 변경 (완제의약품)",
+                subTypes: {
+                    "자사기준공정서": {
+                        title: "자사기준 → 공정서 변경",
+                        conditions: [
+                            "해당 변경은 전적으로 공정서 준수를 위한 것이다",
+                            "완제의약품의 성능에 잠재적인 영향을 미치는 규격의 변경은 아니다",
+                            "규격의 시험항목, 시험방법 또는 판정 기준의 삭제나 완화는 없다"
+                        ],
+                        requirements: [
+                            "CTD 업데이트본 (P.5) - 변경대비표 포함",
+                            "(P.5.1) 책임자가 날짜를 적고 서명한 완제의약품 규격의 사본 및 비교표",
+                            "(P.5.3) 자사 시험법 사용하고자 하는 경우 자사 시험법과 공정서 시험방법 사이의 동등성 시험 결과",
+                            "(P.5.4) 새로운 분석 절차가 시행되는 경우, 배치의 설명문, 적어도 1배치에 대한 시험성적서",
+                            "(P.5.6) 변경하고자 하는 완제의약품 규격의 타당성 입증 자료",
+                            "(P.5.3) 시험방법 베리피케이션 자료",
+                            "변경된 기준 및 시험방법(한글파일)"
+                        ],
+                        category: "기시변경"
+                    },
+                    "기준강화": {
+                        title: "기준 강화",
+                        conditions: [
+                            "해당 변경은 현재 허가된 범위 내에 있다",
+                            "해당 변경은 제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제로 인하여 필요로 인한 변경이 아니다"
+                        ],
+                        requirements: [
+                            "CTD 업데이트본 (P.5) - 변경대비표 포함",
+                            "(P.5.1) 책임자가 날짜를 적고 서명한 변경하고자 하는 완제의약품 규격의 사본 및 현재의 허가된 규격과 변경하고자 하는 규격의 비교표",
+                            "(P.5.6) 변경하고자 하는 완제의약품 규격의 타당성 입증 자료",
+                            "변경된 기준 및 시험방법(한글파일)"
+                        ],
+                        category: "기시변경"
+                    },
+                    "기준완화": {
+                        title: "기준 완화",
+                        conditions: [
+                            "해당 변경은 제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제로 인하여 필요로 인한 변경이 아니다",
+                            "ICH 구조확인 수준을 넘는 추가 불순물이 발견되지 않았다",
+                            "규격의 변경은 제제의 안정성과 성능에 영향을 미치지 않는다",
+                            "해당 변경은 무균 시험법에 관한 것이 아니다"
+                        ],
+                        requirements: [
+                            "CTD 업데이트본 (P.5) - 변경대비표 포함",
+                            "(P.5.1) 책임자가 날짜를 적고 서명한 변경하고자 하는 완제의약품 규격의 사본 및 현재의 허가된 규격과 변경하고자 하는 규격의 비교표",
+                            "(P.5.4) 새로운 분석 절차가 시행되는 경우, 배치의 설명문, 적어도 1배치(최소 파일럿 규모)에 대한 시험성적서 및 표 형식으로 비교한 결과의 요약문",
+                            "(P.5.6) 변경하고자 하는 완제의약품 규격의 타당성 입증 자료",
+                            "변경된 기준 및 시험방법(한글파일)"
+                        ],
+                        category: "기시변경"
+                    },
+"시험방법변경": {
+    title: "시험방법 변경",
+    conditions: [
+        "시험방법은 동일한 분석 기술 또는 원리(예: 분석 절차의 변경이 칼럼의 길이 및 그 밖의 파라미터가 허용 가능한 조정 범위 내에 있고, 허용 범위를 벗어나는 변동이나 다른 종류의 칼럼과 방법은 포함하지 않는다)에 근거를 두고 있고, 새로운 불순물이 검출되지 않는다",
+        "비교 시험에서 변경하고자 하는 시험방법이 현재 허가된 시험방법과 비교할 때 동등 이상이라는 것이 확인된다",
+        "새로운 시험방법은 새로운 비표준 기술 또는 새로운 방식으로 사용되는 표준 기술에 관한 것이 아니다",
+        "해당 변경은 무균시험법에 관한 것이 아니다",
+        "해당 변경은 제조 과정에서 발생하는 예기치 않은 사례로 인한 규격 미충족 혹은 안정성 문제로 인한 변경이 아니다",
+        "새로운 불순물은 검출되지 않았다"
+    ],
+    requirements: {
+        "AR": [
+            "CTD 업데이트본 (P.5) - 변경대비표 포함",
+            "(P.5.1) 책임자가 날짜를 적고 서명한 완제의약품 규격의 사본 및 비교표",
+            "(P.5.2) 새로운 시험법 사용 시, 시험방법의 사본 또는 요약문",
+            "(P.5.3) 새로운 시험법 사용 시, 정량법과 순도 시험법에 대한 베리피케이션 자료 포함한 밸리데이션 자료",
+            "(P.5.3) 자사 시험법 사용하면서 공정서 기준 사용하는 경우, 자사 시험법과 공정서 시험법 간 비교시험 결과",
+            "(P.5.4) 배치 정보 요약, 적어도 1배치에 대한 시험성적서, 시험방법에 대한 변경대비표",
+            "변경된 기준 및 시험방법(한글파일)"
+        ],
+        "Cmin": [
+            "CTD 업데이트본 (P.5) - 변경대비표 포함",
+            "(P.5.1) 책임자가 날짜를 적고 서명한 완제의약품 규격의 사본 및 비교표",
+            "(P.5.2) 새로운 시험법 사용 시, 시험방법의 사본 또는 요약문",
+            "(P.5.3) 새로운 시험법 사용 시, 정량법과 순도 시험법에 대한 베리피케이션 자료 포함한 밸리데이션 자료",
+            "(P.5.3) 자사 시험법 사용하면서 공정서 기준 사용하는 경우, 자사 시험법과 공정서 시험법 간 비교시험 결과",
+            "(P.5.4) 배치 정보 요약, 적어도 1배치에 대한 시험성적서, 시험방법에 대한 변경대비표",
+            "시험방법 삭제에 대하여 근거 자료를 포함하는 타당성 입증 자료",
+            "제조방법 변경 동반 시 불순물 시험자료",
+            "변경된 기준 및 시험방법(한글파일)"
+        ],
+        "타당성검토": [
+            "시험방법 변경에 대한 타당성 검토 후 변경 가능 여부 판단 가능"
+        ]
+    },
+    category: "조건부"
+},
+                    "시험방법삭제": {
+                        title: "시험방법 삭제",
+                        conditions: [
+                            "삭제된 시험방법은 대체 방법이며, 현재 허가된 시험방법과 동등하다"
+                        ],
+                        requirements: [
+                            "CTD 업데이트본 (P.5) - 변경대비표 포함",
+                            "(P.5.1) 책임자가 날짜를 적고 서명한 완제의약품 규격의 사본 및 비교표",
+                            "시험방법 삭제에 대하여 근거 자료를 포함하는 타당성 입증 자료",
+                            "변경된 기준 및 시험방법(한글파일)"
+                        ],
+                        category: "기시변경"
+                    }
+                }
+            },
+            "주성분제조원변경": {
+                title: "주성분 제조원 변경",
+                subTypes: {
+                    "원료의약품제조원변경": {
+                        title: "원료의약품 제조원 변경",
+                        drugTypes: {
+                            "합성의약품": {
+                                conditions: [
+                                    "무균 원료의약품 아님",
+                                    "DMF 완제연계 품질심사 완료",
+                                    "원료의약품 규격 변경 없음",
+                                    "원료의약품의 결정형, 입자크기 유의한 차이 없음",
+                                    "원료의약품 규격(공정관리, 분석방법 등), 제조방법(배치크기 포함), 합성경로 변경 없음",
+                                    "BSE/TSE 위험 평가가 필요한 새로운 공급자를 이용하지 않음"
+                                ],
+                                requirements: {
+                                    "IR": [
+                                        "GMP 적합판정서",
+                                        "(S.2.1) 제조소명, 주소, 책임부과범위 자료",
+                                        "변경 전후 제조소의 원료의약품, 중간체 또는 원료의약품 출발물질 (해당되는 경우) 제조공정에 관한 자료",
+                                        "(S.4.4) 변경 전후 원료의약품 2배치 배치분석자료",
+                                        "(S.2) 원료의약품 및 핵심(최종) 중간체 합성 경로, 사용 원료, 품질 관리 절차 변경이 없다는 확인서"
+                                    ],
+                                    "Cmaj": [
+                                        "GMP 적합판정서",
+                                        "CTD 업데이트본 (S.2, S.4, P.8) - 변경대비표 포함",
+                                        "(S.2.1) 제조소명, 주소, 책임부과범위 자료",
+                                        "(S.2.2) 변경 전후 제조소의 원료의약품 제조 공정 자료",
+                                        "(S.2.5) 무균원료의약품 생산의 경우 무균공정에대한 공정밸리데이션 자료 및 평가자료",
+                                        "(S.4.4) 변경 전후 원료의약품 2배치 배치분석자료",
+                                        "(P.8.2) 완제의약품 안정성에 영향을 미칠 수 있는 변경의 경우, 완제의약품 1배치 안정성 시험 이행 계획서",
+                                        "(S.4.1) 원료의약품 기준 및 시험방법",
+                                        "주성분 별규 한글파일",
+                                        "(S.7.2) 변경 후 원료의약품의 안정성 시험 필요성 고찰 및 필요한 경우 안정성 시험 이행 계획서",
+                                        "결정형, 용해도, 입자도 차이 유무에 따른 동등성 자료",
+                                        "완제의약품 불순물 프로파일",
+                                        "(P.2) 원료의약품이 완제의약품에 미치는 영향 고찰 자료"
+                                    ]
+                                },
+                                category: "조건부"
+                            },
+                            "한약(생약)제제": {
+                                conditions: [
+                                    "무균 원료의약품 아님",
+                                    "DMF 완제연계 품질심사 완료",
+                                    "원료의약품 규격 변경 없음",
+                                    "원료의약품 규격(공정관리, 분석방법 등), 제조방법(배치크기 포함) 변경 없음",
+                                    "BSE/TSE 위험 평가가 필요한 새로운 공급자를 이용하지 않음"
+                                ],
+                                requirements: {
+                                    "IR": [
+                                        "GMP 적합판정서",
+                                        "(S.2.1) 제조소명, 주소, 책임부과범위 자료",
+                                        "변경 전후 제조소의 원료의약품, 중간체 또는 원료의약품 출발물질 (해당되는 경우) 제조공정에 관한 자료",
+                                        "(S.4.4) 변경 전후 원료의약품 2배치 배치분석자료",
+                                        "(S.2) 원료의약품 및 핵심(최종) 중간체 합성 경로, 사용 원료, 품질 관리 절차 변경이 없다는 확인서"
+                                    ],
+                                    "Cmaj": [
+                                        "GMP 적합판정서",
+                                        "CTD 업데이트본 (S.2, S.4, P.8) - 변경대비표 포함",
+                                        "(S.2.1) 제조소명, 주소, 책임부과범위 자료",
+                                        "(S.2.5) 무균원료의약품 생산의 경우 무균공정에 대한 공정밸리데이션 자료 및 평가자료",
+                                        "변경 전후 제조소의 원료의약품, 중간체 또는 원료의약품 출발물질 (해당되는 경우) 제조공정에 관한 자료",
+                                        "(S.4.4) 변경 전후 원료의약품 2배치 배치분석자료",
+                                        "(P.8.2) 완제의약품 안정성에 영향을 미칠 수 있는 변경의 경우, 완제의약품 1배치 안정성 시험 이행 계획서",
+                                        "(S.4.1) 원료의약품 기준 및 시험방법",
+                                        "주성분 별규 한글파일",
+                                        "변경 후 원료의약품이 완제의약품의 안전성, 유효성 및 품질에 미치는 영향에 대한 고찰자료",
+                                        "(S.7.2) 변경 후 원료의약품의 안정성 시험 필요성 고찰 및 필요한 경우 안정성 시험 이행 계획서",
+                                        "완제의약품 제조사에서 확립한 주성분 성분프로파일과의 동등상관계수 평가 자료"
+                                    ]
+                                },
+                                category: "조건부"
+                            }
+                        }
+                    },
+                    "원료의약품제조공정변경": {
+                        title: "원료의약품 제조공정 변경",
+                        drugTypes: {
+                            "한약(생약)제제": {
+                                conditions: [
+                                    "원료의약품의 물리적 성질에 변경이 없다",
+                                    "변경 전후, 출발물질 규격, 중간체 규격 또는 원료의약품 규격 변경이 없다",
+                                    "추출용매, 추출방식, 추출온도, 추출압력 및 수율에 변경이 없다",
+                                    "무균 원료의약품의 멸균 또는 무균 공정에 영향을 미치지 않는다",
+                                    "사람 또는 동물 유래 물질 사용시 BSE/TSE 위험 평가가 필요한 새로운 공정이 포함되지 않는다",
+                                    "건조 방식의 변경이다 (단, 진공, 열풍, 분무건조와 동결건조 간 변경은 포함되지 않는다)",
+                                    "제조방법에 변경(제조단위 포함)이 없는 수율의 변경이다"
+                                ],
+                                requirements: {
+                                    "IR": [
+                                        "CTD 업데이트본 (S.2, S.4) - 변경대비표 포함",
+                                        "(S.2.2) 변경하고자 하는 상세 제조 공정 자료",
+                                        "(해당되는 경우) 원료의약품 제조에 사용된 원료(원료약품, 출발물질, 용매, 시약 등)의 규격 및 시험 성적서",
+                                        "(S.4.4) 변경 전후 원료의약품 최소 2배치 배치분석 자료",
+                                        "변경 전후 제조방법 비교표"
+                                    ],
+                                    "Cmin": [
+                                        "CTD 업데이트본 (S.2, S.4) - 변경대비표 포함",
+                                        "(S.2.2) 변경하고자 하는 상세 제조 공정 자료",
+                                        "(S.2.4) (해당되는 경우) 주요 공정 및 중간체 관리에 관한 자료",
+                                        "(S.3.1) 원료의약품의 물리화학적 성질에 관한 자료(성분 프로파일)",
+                                        "(S.4.4) 변경 전후 원료의약품 최소 2배치 배치분석 자료",
+                                        "(P.5.4) 변경 후 완제의약품의 배치분석자료",
+                                        "변경 전후 제조방법 비교표"
+                                    ],
+                                    "Cmin_수율변경": [
+                                        "(S.4.1) 변경 후 원료의약품 기준 및 시험방법에 관한 자료 (변경 시, 출발물질 및 중간체의 기시법)",
+                                        "주성분 별규 한글 파일",
+                                        "허가 이후 생산 결과에 대한 고찰자료 (예, 생산 수율 경향성, 제조지시 및 기록서, 3배치 이상 시험성적서)"
+                                    ],
+                                    "Cmaj": [
+                                        "CTD 업데이트본 (S.2, S.3, S.4) - 변경대비표 포함",
+                                        "(S.2.2) 변경하고자 하는 상세 제조 공정 자료",
+                                        "(S.2.3) (해당되는 경우) 원료의약품 제조에 사용된 원료의 규격 및 시험 성적서",
+                                        "(S.2.3) 사람 또는 동물 유래 물질 사용시 BSE/TSE 위험 적합성 평가 자료",
+                                        "(S.2.4) (해당되는 경우) 주요 공정 및 중간체 관리 자료",
+                                        "(S.2.5) 멸균 공정 밸리데이션 자료 또는 멸균 평가 시험 자료",
+                                        "(S.3.1) 원료의약품의 물리화학적 성질에 관한 자료(성분 프로파일에 관한 자료 등)",
+                                        "(S.4.1) 변경 후 원료의약품 기준 및 시험방법 - 주성분 별규 포함",
+                                        "(S.4.4) 변경 전후 원료의약품 최소 2배치 배치분석 자료",
+                                        "(S.7.1) 변경 후 원료의약품 최소 2배치에 대한 3개월 이상 가속 시험 및 장기 보존 시험 자료",
+                                        "변경 후 원료의약품이 완제의약품의 안전성, 유효성 및 품질에 미치는 영향 고찰자료(완제 불순물 프로파일, 배치분석자료 등)",
+                                        "변경 전후 제조방법 비교표"
+                                    ]
+                                },
+                                category: "복합조건"
+                            },
+                            "합성의약품": {
+                                conditions: [
+                                    "원료의약품의 물리적 성질에 변경이 없다",
+                                    "난용성 원료의약품의 경우, 결정다형이 동일하고 입자 크기 분포에 유의한 차이가 없다",
+                                    "사람 또는 동물 유래 물질 사용시 BSE/TSE 위험 평가가 필요한 새로운 공정이 포함되지 않는다",
+                                    "합성경로의 변경이 없고 새로운 시약, 촉매 혹은 용매가 사용되지 않는다",
+                                    "원료의약품의 정성적 및 정량적 불순물 프로파일이나 물리 화학적 성질의 변경이 없다",
+                                    "무균 원료의약품의 멸균 또는 무균 공정에 영향을 미치지 않는다",
+                                    "최종 중간체 이전 공정의 변경이다",
+                                    "변경 전후, 출발물질 규격, 중간체 규격의 변경이 없다",
+                                    "원료의약품 규격의 변경이 없다"
+                                ],
+                                requirements: {
+                                    "IR": [
+                                        "CTD 업데이트본 (S.2, S.4) - 변경대비표 포함",
+                                        "(S.2.2) 변경하고자 하는 합성 공정 흐름도 및 상세 제조 공정 자료",
+                                        "(해당되는 경우) 원료의약품 제조에 사용된 원료(원료약품, 출발물질, 용매, 시약 등)의 규격 및 시험 성적서",
+                                        "(S.4.4) 변경 전후 원료의약품 최소 2배치 배치분석 자료",
+                                        "변경 전후 제조방법 비교표"
+                                    ],
+                                    "Cmin": [
+                                        "CTD 업데이트본 (S.2, S.4) - 변경대비표 포함",
+                                        "(S.2.2) 변경하고자 하는 합성 공정 흐름도 및 상세 제조 공정 자료",
+                                        "(S.4.1) 변경 후 원료의약품 기준 및 시험방법 - 주성분 별규 포함",
+                                        "(S.4.4) 변경 전후 원료의약품 최소 2배치 배치분석 자료"
+                                    ],
+                                    "Cmaj": [
+                                        "CTD 업데이트본 (S.2, S.3, S.4) - 변경대비표 포함",
+                                        "(S.2.2) 변경하고자 하는 합성 공정 흐름도 및 상세 제조 공정 자료",
+                                        "(S.2.3) (해당되는 경우) 원료의약품 제조에 사용된 원료의 규격 및 시험 성적서",
+                                        "(S.2.3) 사람 또는 동물 유래 물질 사용시 BSE/TSE 위험 적합성 평가 자료",
+                                        "(S.2.4) (해당되는 경우) 주요 공정 및 중간체 관리 자료",
+                                        "(S.2.5) 멸균 공정 밸리데이션 자료 또는 멸균 평가 시험 자료",
+                                        "(S.3.1) 원료의약품의 구조 결정 자료 및 물리화학적 성질 자료",
+                                        "(S.3.2) 불순물에 대한 고찰 및 근거자료",
+                                        "(S.4.1) 변경 후 원료의약품 기준 및 시험방법 - 주성분 별규 포함",
+                                        "(S.4.4) 변경 전후 원료의약품 최소 2배치 배치분석 자료",
+                                        "(S.7.1) 변경 후 원료의약품 최소 2배치에 대한 3개월 이상 가속 시험 및 장기 보존 시험 자료",
+                                        "변경 후 원료의약품이 완제의약품의 안전성, 유효성 및 품질에 미치는 영향 고찰자료(완제 불순물 프로파일, 배치분석자료 등)",
+                                        "변경 전후 제조방법 비교표",
+                                        "난용성 원료의약품의 결정형 또는 입자도 변경시 완제의약품의 품질과 생체이용률에 영향을 미치지 않는다는 입증 자료"
+                                    ]
+                                },
+                                category: "조건부"
+                            }
+                        }
+                    }
+                }
+            },
+            "완제제조원변경": {
+                title: "완제 제조원 변경",
+                subTypes: {
+                    "완제제조소변경": {
+                        title: "완제의약품 제조소 변경",
+                        conditions: [
+                            "배치 조성, 제조 공정 및 공정 관리의 기록사항, 장비 등급 및 공정관리, 주요 공정 및 반제품의 관리 또는 완제의약품의 규격에 있어서 변경이 없음",
+                            "GMP 적합판정서 보유(해외제조원인 경우 제조증명서)"
+                        ],
+                        requirements: {
+                            "Cmin": [
+                                "CTD 업데이트본 (P.2, P.3, P.5) - 변경대비표 포함",
+                                "(P.3.1) 수탁업소를 포함한 각 제조원, 주소, 책임소재 등의 자료",
+                                "(P.2) 원료의약품이 녹지 않은 상태로 존재하는 반고형 제제와 액상 제제일 때는 입도시험 또는 입자도 시험에 대한 적절한 밸리데이션 자료",
+                                "(P.2 또는 R) 의약품동등성시험기준(별표4)에 따른 동등성 시험 자료 (현탁제 제외한 액상제제, 흡입제 및 반고형제제는 불필요)",
+                                "(P.3.5) 변경 후 실생산 규모의 3배치에 대한 공정 밸리데이션 보고서 또는 밸리데이션 실시 계획서",
+                                "(P.5.1) 변경 후 완제의약품 규격에 관한 자료",
+                                "(P.5.4) 변경 전후 최소 생산규모 1배치에 대한 배치분석 자료",
+                                "GMP 자료 (국내 제조소: GMP 적합판정서 / 해외 제조소: 제조증명서)",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ],
+                            "Cmaj": [
+                                "CTD 업데이트본 (P.2, P.3, P.5, P.8) - 변경대비표 포함",
+                                "(P.3.1) 수탁업소를 포함한 각 제조원, 주소, 책임소재 등의 자료",
+                                "(P.2) 원료의약품이 녹지 않은 상태로 존재하는 반고형 제제와 액상 제제일 때는 입도시험 또는 입자도 시험에 대한 적절한 밸리데이션 자료",
+                                "(P.2 또는 R) 의약품동등성시험기준(별표4)에 따른 동등성 시험 자료",
+                                "(P.3.5) 변경 후 실생산 규모의 3배치에 대한 공정 밸리데이션 보고서 또는 밸리데이션 실시 계획서",
+                                "(P.5.1) 변경 후 완제의약품 규격에 관한 자료",
+                                "(P.5.4) 변경 전후 최소 생산규모 1배치에 대한 배치분석 자료",
+                                "(P.8.2) 변경 후 생산규모 배치에 대한 안정성 시험 계획 및 이행서약 (생물학적동등성시험 제출시 최소 2배치의 장기 및 가속 최소 6개월 자료)",
+                                "GMP 자료 (국내 제조소: GMP 적합판정서 / 해외 제조소: 제조증명서)",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ]
+                        },
+                        category: "조건부"
+                    }
+                }
+            },
+            "제조방법변경": {
+                title: "제조방법 변경",
+                subTypes: {
+                    "제조규모변경": {
+                        title: "제조규모 변경",
+                        conditions: [
+                            "배치 생산규모 대비 10배수 이하의 변경이다",
+                            "특수제제가 아닌 일반 제제이다",
+                            "해당 변경은 제제의 재현성 및/또는 일관성에 영향을 미치지 않는다",
+                            "제조장비의 작동원리 및 디자인이 동일하고, 제조 방법 및/또는 공정 중 관리의 변경은 제조규모의 변경에 따른 변경만 필요로 한다",
+                            "제조 공정 밸리데이션 실시 계획서가 있거나 또는 현재의 밸리데이션 실시 계획서에 따라 생산 규모의 3 배치에 대한 제조 공정 밸리데이션이 성공적으로 수행되었다",
+                            "해당 변경은 제조 과정에서 발생하는 예기치 않은 사례 혹은 안정성 문제로 인하여 필요로하는 것이 아니다"
+                        ],
+                        requirements: {
+                            "AR_10배이하": [
+                                "CTD 업데이트본 (P.3.5, P.5.4, P.8.2) - 변경대비표 포함",
+                                "(P.3.5) 제조규모 3배치에 대한 PV실시 보고서 또는 실시 계획서",
+                                "(P.5.4) 변경전후 생산규모 완제의약품 최소 1배치에 대한 배치분석 자료",
+                                "(P.8.2) 안정성 시험 계획 및 이행서약",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ],
+                            "IR_일반제제10배초과": [
+                                "CTD 업데이트본 (P.3.5, P.5.4, P.8.2) - 변경대비표 포함",
+                                "(P.2 또는 R) 의약품동등성시험기준(별표3)에 따른 동등성 시험 자료 (현탁제 제외한 액상제제는 불필요)",
+                                "(P.3.5) 제조규모 3배치에 대한 PV실시 보고서 또는 실시 계획서",
+                                "(P.5.4) 변경전후 생산규모 완제의약품 최소 1배치에 대한 배치분석 자료",
+                                "(P.8.2) 안정성 시험 계획 및 이행서약",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ],
+                            "Cmaj_특수제제10배초과": [
+                                "CTD 업데이트본 (P.3.5, P.5.4, P.8.2) - 변경대비표 포함",
+                                "(P.2 또는 R) 의약품동등성시험기준(별표3)에 따른 동등성 시험 자료",
+                                "(P.3.5) 제조규모 3배치에 대한 PV실시 보고서 또는 실시 계획서",
+                                "(P.5.4) 변경전후 생산규모 완제의약품 최소 1배치에 대한 배치분석 자료",
+                                "(P.8.2) 안정성 시험 계획 및 이행서약",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ]
+                        },
+                        category: "복합조건"
+                    },
+                    "제조공정변경": {
+                        title: "제조공정 변경",
+                        conditions: [
+                            "불순물 프로파일의 변경이 없고 물리 화학적 성질에 변경이 없다. 용출 프로파일은 대조약 배치의 프로파일과 유사하다",
+                            "변경 전후 제제의 제조공정은 동일한 원리이고 반제품은 동일하며, 공정에 사용되는 제조 용매에는 변경이 없다",
+                            "변경 전후 작동원리가 같은 동일 계열의 제조장비를 사용한다",
+                            "완제의약품의 품질에 영향을 미치는 제조공정(주요공정) 조건의 변동이 없다",
+                            "반제품 또는 완제의약품의 규격 변경은 없다",
+                            "제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제 때문에 발생한 변경은 아니다",
+                            "해당 변경은 계량 및/또는 전달 기능을 제공하는 일차 포장과 관련된 포장이나 라벨링 공정을 포함하지 않는다",
+                            "일반제제(특수성이 인정되는 제제 제외)"
+                        ],
+                        requirements: {
+                            "AR": [
+                                "CTD 업데이트본 (P.3, P.5, P.8.2) - 변경대비표 포함",
+                                "(P.2) 제조 공정의 개발에 관한 검토 자료 (In-Vitro 비교시험 자료 등)",
+                                "(P.3) 배치 조성, 제조공정과 공정관리의 설명 자료, 주요 단계와 중간체의 관리, 공정 밸리데이션 실시 계획서",
+                                "(P.5) 변경 전후 생산 규모 1배치에 대한 규격 및 시험성적서",
+                                "(P.8.2) 변경 후 제제의 생산규모 배치에 대한 안정성 시험 계획 및 이행서약",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ],
+                            "IR": [
+                                "CTD 업데이트본 (P.2 or R, P.3, P.5, P.8.1, P.8.2) - 변경대비표 포함",
+                                "(P.2 또는 R) 의약품동등성시험기준(별표3)에 따른 동등성 시험 자료 (액상제제는 불필요)",
+                                "(P.2) 제조 공정의 개발에 관한 검토 자료",
+                                "(P.3) 배치 조성, 제조공정과 공정관리의 설명 자료",
+                                "(P.5) 변경 전후 생산 규모 1배치에 대한 규격 및 시험성적서",
+                                "(P.8.1) 최소 2배치에 대한 3개월 가속 및 장기안정성 시험결과",
+                                "(P.8.2) 변경 후 제제의 생산규모 배치에 대한 안정성 시험 계획 및 이행서약",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ],
+                            "Cmaj": [
+                                "CTD 업데이트본 (P.2 or R, P.3, P.5, P.8.1, P.8.2) - 변경대비표 포함",
+                                "(P.2 또는 R) 의약품동등성시험기준(별표3)에 따른 동등성 시험 자료",
+                                "(P.2) 제조 공정의 개발에 관한 검토 자료",
+                                "(P.3) 배치 조성, 제조공정과 공정관리의 설명 자료",
+                                "(P.5) 변경 전후 생산 규모 1배치에 대한 규격 및 시험성적서",
+                                "(P.8.1)최소 2배치에 대한 3개월 가속 및 장기안정성 시험결과",
+                                "(P.8.2) 변경 후 제제의 생산규모 배치에 대한 안정성 시험 계획 및 이행서약",
+                                "해당 변경 사항 외에 제조 관련 문서에 일체의 변경이 없다는 내용의 확인서"
+                            ]
+                        },
+                        category: "복합조건"
+                    },
+                    "공정관리시험변경": {
+                        title: "공정관리시험 변경",
+                        subTypes: {
+                            "공정관리시험기준변경": {
+                                title: "공정관리시험 기준 변경",
+                                conditions: [
+                                    "해당 변경은 공정관리 기준 범위 내에 있다",
+                                    "해당 변경은 제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족또는 안정성 문제로 인하여 필요로 하는 것이 아니다",
+                                    "시험방법에는 변경이 없다"
+                                ],
+                                requirements: {
+                                    "AR": [
+                                        "(P.3.3, P.3.4) 공정 중 시험의 규격 비교표 등 변경 전,후에 관한 자료"
+                                    ],
+                                    "Cmaj": [
+                                        "CTD 업데이트본 (P2 or R, P.3.3, P.3.4, P.5.4)",
+                                        "의약품동등성시험기준(별표3)에 따른 동등성 시험 자료 (고시 비교용출 혹은 생동)",
+                                        "(P.3.3, P.3.4) 공정 중 시험의 규격 비교표 등 변경 전후에 관한 자료",
+                                        "(P.3.3, P.3.4) 새로운 공정관리 시험법 사용하는 경우, 시험방법에 관한 자료",
+                                        "새로운 시험법 사용하는 경우, 밸리데이션 자료",
+                                        "(P.5.4) 변경 전후 최소 1배치 시험성적 비교자료",
+                                        "공정관리시험 기준 변경에 대한 타당성 입증 자료"
+                                    ]
+                                },
+                                category: "조건부"
+                            },
+                            "공정관리시험항목삭제": {
+                                title: "공정관리시험 항목 삭제",
+                                conditions: [
+                                    "해당 변경은 제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제로 인하여 필요로 하는 것이 아니다",
+                                    "삭제된 공정관리 항목은 불필요하거나 생략 가능한 것으로 입증되었으며 제제의 주요 품질특성에 미치는 영향이 없거나 적다"
+                                ],
+                                requirements: [
+                                    "공정관리 시험 항목 삭제에 대한 타당성 입증 자료"
+                                ],
+                                category: "조건부삭제"
+                            },
+                            "공정관리시험기준추가및방법변경": {
+                                title: "새로운 공정관리 시험 기준 추가 및 공정관리시험 방법 변경",
+                                conditions: [
+                                    "해당 변경은 제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제로 인하여 필요로 하는 것이 아니다"
+                                ],
+                                requirements: [
+                                    "CTD 업데이트본 (P.3.3, P.3.4, P.5.4)",
+                                    "(P.3.3, P.3.4) 공정 중 시험의 규격 비교표 등 변경 전후에 관한 자료",
+                                    "(P.3.3, P.3.4) 새로운 공정관리 시험법을 사용하는 경우, 시험방법에 관한 자료",
+                                    "(P.5.4) 변경 전후 최소 1배치 시험성적 비교자료",
+                                    "새로운 시험법 사용하는 경우, 밸리데이션 자료",
+                                    "공정관리 시험 기준 추가, 시험방법 변경에 대한 타당성 입증 자료"
+                                ],
+                                category: "조건부추가"
+                            }
+                        }
+                    }
+                }
+            },
+            "DMF연차보고": {
+                title: "DMF 연차보고",
+                subTypes: {
+                    "신청인정보변경": {
+                        title: "신청인 정보 변경",
+                        conditions: [
+                            "대표자, 업허가번호, 소재지, 명칭 변경",
+                            "양수도에 따른 변경이 아님"
+                        ],
+                        requirements: [
+                            "제조업허가증/수입업신고증"
+                        ],
+                        category: "연차보고"
+                    },
+                    "제조소정보변경": {
+                        title: "제조소 정보 변경",
+                        conditions: [
+                            "제조소 위치 변경 없는 명칭 변경",
+                            "행정구역 변경으로 인한 소재지 변경",
+                            "동일 지번 내 생산 장소 변경(신축, 증축, 공장동 이동)",
+                            "제조방법 변경을 수반하지 않음"
+                        ],
+                        requirements: {
+                            "연차보고_명칭소재지": [
+                                "해당국가의 공식기관에서 발급받은 문서와 제조소 책임자가 서명하고 공증 받은 자료 또는 변경된 명칭 및 소재지로 발급받은 GMP증명서",
+                                "DMF 3.2.S.2.1 업데이트"
+                            ],
+                            "연차보고_생산장소": [
+                                "SMF 제출(site 변경을 확인할 수 있는 근거자료)",
+                                "DMF 3.2.S.2.1 업데이트"
+                            ],
+                            "변경등록": [
+                                "제조방법에 관한 자료 및 시험성적에 관한 자료",
+                                "시설에 관한 자료(SMF 등)"
+                            ]
+                        },
+                        category: "복합조건"
+                    },
+                    "물리화학적성질변경": {
+                        title: "물리·화학적성질 관한 자료 변경",
+                        conditions: [
+                            "약전, 식약처장 인정 공정서 및 의약품집 개정에 따른 변경",
+                            "명칭(일반명, 화학명), CAS NO. 변경",
+                            "의약품의 성상 표기에 대한 가이드라인에 따른 표기방법 변경(예 : 백색->흰색)",
+                            "유연물질에 관한 자료 변경(추가)"
+                        ],
+                        requirements: {
+                            "연차보고": [
+                                "근거서류 (INN list 등) 또는 근거규정",
+                                "DMF 해당파트 업데이트"
+                            ],
+                            "변경등록": [
+                                "유연물질 요약자료 및 그 검출 또는 분석법에 대한 자료 제출"
+                            ]
+                        },
+                        category: "복합조건"
+                    },
+                    "안정성에관한자료": {
+                        title: "안정성에 관한 자료",
+                        conditions: [
+                            "원료의약품의 사용기간(재시험기간)에 변경이 있음",
+                            "최초 등록 신청 시 계획서로 사용기간 인정 받아, 추가 안정성 시험 자료 제출을 위함",
+                            "저장조건을 변경하고자 함"
+                        ],
+                        requirements: {
+                            "변경등록_사용기간": [
+                                "3배치 안정성시험 자료 (1 배치 raw data 포함)"
+                            ],
+                            "변경보고": [
+                                "안정성시험계획서에 따라 실시한 사용기간까지의 3배치 안정성 시험 자료 (1배치 raw data 포함)"
+                            ],
+                            "변경등록_저장조건": [
+                                "3배치 안정성 시험 자료(1배치 raw data 포함)",
+                                "포장용기에 관한 자료 (포장용기의 변경이 있는 경우)"
+                            ]
+                        },
+                        category: "복합조건"
+                    },
+                    "제조방법변경": {
+                        title: "제조방법 변경",
+                        conditions: [
+                            "중요공정(핵심중간체 생성공정 및 그 이후 공정) 제외한 초기단계 제조공정 변경",
+                            "원료의약품의 물리적 성질(결정형, 비결정형 등)에 변경이 없음",
+                            "난용성 원료의약품의 경우, 결정다형이 동일하고, 입자 크기가 중요한 경우 입자크기 분포에 유의한 차이가 없음",
+                            "BSE/TSE 위험 평가가 필요한 새로운 공정이 포함되지 않음",
+                            "합성경로의 변경이 없고(중간체는 동일하게 유지됨) 새로운 시약, 촉매 혹은 용매가 사용되지 않음",
+                            "원료의약품의 불순물 프로파일이나 물리 화학적 성질에 변경이 없음",
+                            "무균 원료의약품의 멸균 또는 무균 공정에 영향을 미치지 않음",
+                            "최종 중간체 이전 공정의 변경",
+                            "변경 전후 출발물질규격 중간체규격 또는 원료의약품 규격의 변경이 없음",
+                            "핵심 중간체가 동일하고 불순물의 정성/정량적 프로파일에 변화가 없음",
+                            "제조단위 변경 - 규모의 변경이 10배 미만 혹은 축소 (중요공정 변경 수반 제외)",
+                            "원료약품(용매, 시약, 촉매 등)의 기준 및 시험방법 변경(출발물질, 핵심중간체 생성 공정 및 그 이후 공정에 사용되는 원료약품 제외)",
+                            "중요공정 제조에 사용되는 원료약품(용매, 시약, 촉매 등)의 종류가 변경되지 않음"
+                        ],
+                        requirements: {
+                            "변경보고": [
+                                "변경 제조방법에 관한 자료 (DMF)",
+                                "원료의약품 시험성적에 관한 자료(3 배치)"
+                            ],
+                            "변경등록": [
+                                "변경 제조방법에 관한 자료 (DMF)",
+                                "변경 전후 동등성 입증자료(종정 배치와 새로운 배치의 불순물 프로파일 통계적 분석자료 최소 3배치, 물리화학적 성질에 관한 자료)",
+                                "원료의약품 시험성적에 관한 자료(3 배치, 1배치 근거자료 포함)",
+                                "불순물에 대한 고찰 및 근거자료"
+                            ]
+                        },
+                        category: "복합조건"
+                    }
+                }
+            }
+        };
+
+        function addMessage(text, type) {
+            var chatMessages = document.getElementById('chatMessages');
+            var messageDiv = document.createElement('div');
+            messageDiv.className = 'message ' + type + '-message';
+            messageDiv.innerHTML = '<div class="message-content">' + text + '</div>';
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function selectChangeType(changeType) {
+            selectedChangeType = changeType;
+            addMessage('"' + changeData[changeType].title + '"을 선택하셨습니다.', 'user');
+            
+            if (changeType === '주성분제조원변경') {
+                addMessage('⚠️ 중요: 주성분 제조원 변경 시 제조방법 변경도 함께 검토해야 합니다!', 'bot');
+                addMessage('먼저 기존 원료의약품과 신규 원료의약품의 물리화학적 특성, 규격, 공정을 비교 검토하셨나요?', 'bot');
+            } else if (changeType === '완제제조원변경') {
+                addMessage('⚠️ 중요: 제조원 변경 시 제조방법 변경에 해당하는 사항도 병행 검토 및 서류 제출이 필요합니다!', 'bot');
+            } else if (changeType === '제조방법변경') {
+                addMessage('제조방법 변경은 의약품동등성시험 필요 여부 검토가 필요합니다.', 'bot');
+            } else if (changeType === 'DMF연차보고') {
+                addMessage('DMF 연차보고는 경미한변경사항에 대한 보고입니다.', 'bot');
+            }
+            
+            showSubMenu(changeType);
+        }
+
+        function showSubMenu(changeType) {
+            document.getElementById('mainMenu').style.display = 'none';
+            
+            var subMenu = document.getElementById('subMenu');
+            var subTypes = changeData[changeType].subTypes;
+            
+            var html = '';
+            for (var key in subTypes) {
+                if (subTypes.hasOwnProperty(key)) {
+                    html += '<button class="menu-btn" onclick="selectSubType(\'' + key + '\')">' + subTypes[key].title + '</button>';
+                }
+            }
+            
+            subMenu.innerHTML = html;
+            subMenu.style.display = 'grid';
+            
+            document.getElementById('backBtn').style.display = 'inline-block';
+            currentStep = 'sub';
+        }
+
+        function selectSubType(subType) {
+            selectedSubType = subType;
+            var data= changeData[selectedChangeType].subTypes[subType];
+            
+            addMessage('"' + data.title + '"을 선택하셨습니다.', 'user');
+            
+            // 공정관리시험 변경의 경우 하위 메뉴 표시
+            if (subType === '공정관리시험변경') {
+                addMessage('공정관리시험 변경은 3가지 카테고리로 분류됩니다. 해당하는 유형을 선택해주세요:', 'bot');
+                showProcessControlSubMenu();
+                return;
+            }
+            
+if (subType === '시험방법변경') {
+    document.getElementById('subMenu').style.display = 'none';
+    addMessage('시험방법 변경 조건들을 확인해보겠습니다.', 'bot');
+    showConditionsCheck();
+}
+
+            else if (subType === '원료의약품제조원변경' || subType === '원료의약품제조공정변경') {
+                addMessage('어떤 유형의 의약품인지 선택해주세요:', 'bot');
+                showDrugTypeSelection();
+            }
+            else {
+                addMessage('다음 조건들을 확인해보겠습니다:', 'bot');
+                showConditionsCheck();
+            }
+        }
+
+        function showProcessControlSubMenu() {
+            document.getElementById('subMenu').style.display = 'none';
+            
+            var conditionsDiv = document.getElementById('conditionsCheck');
+            var processControlSubTypes = changeData[selectedChangeType].subTypes[selectedSubType].subTypes;
+            
+            var html = '<h3>🔬 공정관리시험 변경 유형 선택</h3>';
+            html += '<p>해당하는 공정관리시험 변경 유형을 선택해주세요:</p>';
+            html += '<div style="margin-top: 20px; display: grid; grid-template-columns: 1fr; gap: 15px;">';
+            
+            for (var key in processControlSubTypes) {
+                if (processControlSubTypes.hasOwnProperty(key)) {
+                    html += '<button class="condition-btn yes" onclick="selectProcessControlSubType(\'' + key + '\')" style="padding: 20px; font-size: 1.1em; text-align: left;">';
+                    html += processControlSubTypes[key].title;
+                    html += '</button>';
+                }
+            }
+            
+            html += '</div>';
+            
+            conditionsDiv.innerHTML = html;
+            conditionsDiv.style.display = 'block';
+            currentStep = 'processControlSub';
+        }
+
+        function selectProcessControlSubType(processSubType) {
+            // 선택된 공정관리시험 하위 유형을 저장
+            selectedSubType = processSubType;
+            var data = changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[processSubType];
+            
+            addMessage('"' + data.title + '"을 선택하셨습니다.', 'user');
+            addMessage('다음 조건들을 확인해보겠습니다:', 'bot');
+            showConditionsCheck();
+        }
+
+        function showDrugTypeSelection() {
+            document.getElementById('subMenu').style.display = 'none';
+            
+            var conditionsDiv = document.getElementById('conditionsCheck');
+            var html = '<h3>🏥 의약품 유형 선택</h3>';
+            html += '<p>해당하는 의약품 유형을 선택해주세요:</p>';
+            html += '<div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">';
+            html += '<button class="condition-btn yes" onclick="selectDrugType(\'합성의약품\')" style="padding: 20px; font-size: 1.1em;">합성의약품</button>';
+            html += '<button class="condition-btn no" onclick="selectDrugType(\'한약(생약)제제\')" style="padding: 20px; font-size: 1.1em;">한약(생약)제제</button>';
+            html += '</div>';
+            
+            conditionsDiv.innerHTML = html;
+            conditionsDiv.style.display = 'block';
+            currentStep = 'drugType';
+        }
+
+        function selectDrugType(drugType) {
+            selectedDrugType = drugType;
+            addMessage('"' + drugType + '"을 선택하셨습니다.', 'user');
+            addMessage('다음 조건들을 확인해보겠습니다:', 'bot');
+            showConditionsCheck();
+        }
+
+        function showConditionsCheck() {
+            document.getElementById('subMenu').style.display = 'none';
+            
+            var conditionsDiv = document.getElementById('conditionsCheck');
+            var data;
+            
+            // 공정관리시험 변경의 경우
+            if (selectedChangeType === '제조방법변경' && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'] && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+                data = changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType];
+            }
+            // 원료의약품 관련 변경의 경우
+            else if (selectedSubType === '원료의약품제조원변경' || selectedSubType === '원료의약품제조공정변경') {
+                data = changeData[selectedChangeType].subTypes[selectedSubType].drugTypes[selectedDrugType];
+            } 
+            // 일반적인 경우
+            else {
+                data = changeData[selectedChangeType].subTypes[selectedSubType];
+            }
+            
+            var html = '<h3>📋 조건 확인</h3>';
+            
+            for (var i = 0; i < data.conditions.length; i++) {
+                html += '<div class="condition-item">';
+                html += '<div class="condition-question">' + (i + 1) + '. ' + data.conditions[i] + '</div>';
+                html += '<div class="condition-buttons">';
+                html += '<button class="condition-btn yes" onclick="answerCondition(' + i + ', true)">예 (Y)</button>';
+                html += '<button class="condition-btn no" onclick="answerCondition(' + i + ', false)">아니오 (N)</button>';
+                if (selectedChangeType === 'DMF연차보고' && selectedSubType === '제조방법변경') {
+                    html += '<button class="condition-btn" onclick="answerCondition(' + i + ', \'해당없음\')" style="background: #6c757d; color: white;">해당없음</button>';
+                }
+                html += '</div>';
+                html += '</div>';
+            }
+            
+            conditionsDiv.innerHTML = html;
+            conditionsDiv.style.display = 'block';
+            currentStep = 'conditions';
+            conditionResults = [];
+        }
+
+        function answerCondition(index, answer) {
+            conditionResults[index] = answer;
+            
+            // 해당없음은 true로 처리
+            if (answer === '해당없음') {
+                conditionResults[index] = true;
+            }
+            
+            var conditionItems = document.querySelectorAll('.condition-item');
+            var conditionItem = conditionItems[index];
+            var buttons = conditionItem.querySelectorAll('.condition-btn');
+            
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('selected');
+                buttons[i].style.opacity = '0.7';
+                buttons[i].style.transform = 'scale(1)';
+                buttons[i].disabled = false;
+            }
+            
+            var selectedBtn;
+            if (answer === '해당없음') {
+                // 해당없음 버튼 찾기 (마지막 버튼)
+                var allBtns = conditionItem.querySelectorAll('.condition-btn');
+                selectedBtn = allBtns[allBtns.length - 1];
+            } else {
+                selectedBtn = conditionItem.querySelector('.condition-btn.' + (answer ? 'yes' : 'no'));
+            }
+
+            selectedBtn.classList.add('selected');
+            selectedBtn.style.opacity = '1';
+            selectedBtn.style.transform = 'scale(1.1)';
+            
+            var data;
+            // 공정관리시험 변경의 경우
+            if (selectedChangeType === '제조방법변경' && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'] && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+                data = changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType];
+            }
+            // 원료의약품 관련 변경의 경우
+            else if (selectedSubType === '원료의약품제조원변경' || selectedSubType === '원료의약품제조공정변경') {
+                data = changeData[selectedChangeType].subTypes[selectedSubType].drugTypes[selectedDrugType];
+            } 
+            // 일반적인 경우
+            else {
+                data = changeData[selectedChangeType].subTypes[selectedSubType];
+            }
+            
+            var totalConditions = data.conditions.length;
+            var answeredCount = 0;
+            for (var i = 0; i < totalConditions; i++) {
+                if (conditionResults[i] !== undefined) answeredCount++;
+            }
+            
+            if (answeredCount === totalConditions) {
+                setTimeout(function() {
+                    checkConditionResults();
+                }, 1000);
+            }
+        }
+
+        function checkConditionResults() {
+            // 공정관리시험 기준 변경
+            if (selectedSubType === '공정관리시험기준변경') {
+                var condition1 = conditionResults[0]; // 공정관리 기준 범위 내
+                var condition2 = conditionResults[1]; // 예기치 않은 사례가 아님
+                var condition3 = conditionResults[2]; // 시험방법 변경 없음
+                
+                if (condition2 === false) {
+                    addMessage('❌ 조건 2를 만족하지 않습니다. 공정관리시험 기준 변경이 불가능합니다.', 'bot');
+                    showChangeImpossible();
+                    return;
+                }
+                
+                if (condition1 === true && condition2 === true && condition3 === true) {
+                    addMessage('✅ 조건 1,2,3을 모두 만족합니다! AR(연차보고) 변경 대상입니다.', 'bot');
+                    showRequirements('AR');
+                } else if (condition2 === true) {
+                    addMessage('📋 조건 2만 만족합니다. Cmaj 변경 대상입니다.', 'bot');
+                    showRequirements('Cmaj');
+                }
+            }
+            // 공정관리시험 항목 삭제
+            else if (selectedSubType === '공정관리시험항목삭제') {
+                var condition1 = conditionResults[0]; // 예기치 않은 사례가 아님
+                var condition2 = conditionResults[1]; // 삭제 항목이 불필요하거나 생략 가능
+                
+                if (condition1 === false || condition2 === false) {
+                    addMessage('❌ 충족조건을 만족하지 않습니다. 삭제가 불가능합니다.', 'bot');
+                    showChangeImpossible();
+                    return;
+                } else {
+                    addMessage('✅ 충족조건을 만족합니다! AR(연차보고) 변경 수준으로 안내합니다.', 'bot');
+                    showRequirements();
+                }
+            }
+            // 공정관리시험 기준 추가 및 방법 변경
+            else if (selectedSubType === '공정관리시험기준추가및방법변경') {
+                var condition1 = conditionResults[0]; // 예기치 않은 사례가 아님
+                
+                if (condition1 === false) {
+                    addMessage('❌ 규격 미충족 시 기준 추가 및 변경이 불가능합니다.', 'bot');
+                    showChangeImpossible();
+                    return;
+                } else {
+                    addMessage('✅ 규격을 충족합니다! AR(연차보고) 변경 수준으로 안내합니다.', 'bot');
+                    showRequirements();
+                }
+            }
+            else if (selectedSubType === '완제제조소변경') {
+                var condition1 = conditionResults[0];
+                var condition2 = conditionResults[1];
+                
+if (condition2 === false) {
+    addMessage('❌ GMP 적합판정서가 없어 제조원 변경이 불가능합니다.', 'bot');
+    showGMPRequirement();
+    return;
+}
+                
+                if (condition1 === true) {
+                    addMessage('✅ Cmin 변경 대상입니다.', 'bot');
+                    showRequirements('Cmin');
+                } else {
+                    addMessage('📋 Cmaj 변경 대상입니다.', 'bot');
+                    showRequirements('Cmaj');
+                }
+            }
+            else if (selectedSubType === '원료의약품제조원변경') {
+                var allMet = true;
+                for (var i = 0; i < conditionResults.length; i++) {
+                    if (conditionResults[i] !== true) {
+                        allMet = false;
+                        break;
+                    }
+                }
+                
+                if (allMet) {
+                    addMessage('✅ 모든 조건을 충족합니다! IR(즉시보고) 대상입니다.', 'bot');
+                    showRequirements('IR');
+                } else {
+                    addMessage('❌ 일부 조건을 충족하지 않습니다. Cmaj 변경 대상입니다.', 'bot');
+                    showRequirements('Cmaj');
+                }
+            }
+            else if (selectedSubType === '원료의약품제조공정변경') {
+                if (selectedDrugType === '한약(생약)제제') {
+                    var condition1 = conditionResults[0];
+                    var condition2 = conditionResults[1];
+                    var condition3 = conditionResults[2];
+                    var condition4 = conditionResults[3];
+                    var condition5 = conditionResults[4];
+                    var condition6 = conditionResults[5];
+                    var condition7 = conditionResults[6];
+                    
+                    if (condition1 && condition2 && condition3 && condition4 && condition5) {
+                        if (condition6 === true) {
+                            addMessage('✅ 1\~5번 조건을 만족하지만 건조방식 변경이 있습니다. Cmin 변경 대상입니다.', 'bot');
+                            showRequirements('Cmin');
+                        } else {
+                            addMessage('✅ 1\~5번 조건을 모두 만족합니다! IR 변경 대상입니다.', 'bot');
+                            showRequirements('IR');
+                        }
+                    }
+                    else if (condition1 && condition2 && condition4 && condition5 && condition7) {
+                        addMessage('✅ 1,2,4,5,7번 조건을 만족합니다. Cmin 변경 대상입니다.', 'bot');
+                        showRequirements('Cmin_수율변경');
+                    }
+                    else {
+                        addMessage('❌ 조건을 충족하지 않습니다. Cmaj 변경 대상입니다.', 'bot');
+                        showRequirements('Cmaj');
+                    }
+                } else if (selectedDrugType === '합성의약품') {
+                    // 합성의약품 조건 분류 로직 수정
+                    var condition1 = conditionResults[0]; // 물리적 성질 변경 없음
+                    var condition2 = conditionResults[1]; // 결정다형 동일, 입자크기 차이 없음
+                    var condition3 = conditionResults[2]; // BSE/TSE 위험 평가 불필요
+                    var condition4 = conditionResults[3]; // 합성경로 변경 없음
+                    var condition5 = conditionResults[4]; // 불순물 프로파일 변경 없음
+                    var condition6 = conditionResults[5]; // 무균공정 영향 없음
+                    var condition7 = conditionResults[6]; // 최종 중간체 이전 공정
+                    var condition8 = conditionResults[7]; // 출발물질/중간체 규격 변경 없음
+                    var condition9 = conditionResults[8]; // 원료의약품 규격 변경 없음
+                    
+                    // 1\~9가 모두 yes인 경우 IR로 분류
+                    if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6 && condition7 && condition8 && condition9) {
+                        addMessage('✅ 1\~9번 조건을 모두 만족합니다! IR 변경 대상입니다.', 'bot');
+                        showRequirements('IR');
+                    }
+                    // 1,2,3,5,6,7,9만 yes인 경우 또는 1-6까지만 yes인 경우 Cmin으로 분류
+                    else if ((condition1 && condition2 && condition3 && condition5 && condition6 && condition7 && condition9) || 
+                             (condition1 && condition2 && condition3 && condition4 && condition5 && condition6)) {
+                        addMessage('✅ Cmin 조건을 만족합니다! Cmin 변경 대상입니다.', 'bot');
+                        showRequirements('Cmin');
+                    }
+                    // 그 외의 경우 모두 Cmaj로 안내
+                    else {
+                        addMessage('❌ IR, Cmin 조건을 충족하지 않습니다. Cmaj 변경 대상입니다.', 'bot');
+                        showRequirements('Cmaj');
+                    }
+                }
+            }
+            else if (selectedSubType === '제조규모변경') {
+                // 각 조건별 결과 확인
+                var condition1 = conditionResults[0]; // 10배수 이하 변경
+                var condition2 = conditionResults[1]; // 일반 제제
+                var condition3 = conditionResults[2]; // 재현성/일관성 영향 없음
+                var condition4 = conditionResults[3]; // 제조장비 작동원리 동일
+                var condition5 = conditionResults[4]; // PV 실시 계획서/완료
+                var condition6 = conditionResults[5]; // 예기치 않은 사례 아님
+                
+                // 모든 조건 만족 시 AR
+                if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
+                    addMessage('✅ 모든 조건을 만족합니다! AR(연차보고) 변경 대상입니다.', 'bot');
+                    showRequirements('AR_10배이하');
+                }
+                // 1번 제외한 모든 조건 만족 시 IR
+                else if (condition2 && condition3 && condition4 && condition5 && condition6) {
+                    addMessage('📋 1번 조건을 제외한 모든 조건을 만족합니다. IR 변경 대상입니다.', 'bot');
+                    showRequirements('IR_일반제제10배초과');
+                }
+                // 1,2번 제외한 모든 조건 만족 시 Cmaj
+                else if (condition3 && condition4 && condition5 && condition6) {
+                    addMessage('📋 1,2번 조건을 제외한 모든 조건을 만족합니다. Cmaj 변경 대상입니다.', 'bot');
+                    showRequirements('Cmaj_특수제제10배초과');
+                }
+                // 그 외 변경 불가
+                else {
+                    addMessage('❌ 필수 조건을 충족하지 않습니다. 제조규모 변경이 불가능합니다.', 'bot');
+                    showChangeImpossible();
+                }
+            }
+            else if (selectedSubType === '제조공정변경') {
+                var allMet = true;
+                var condition4 = conditionResults[3];
+                var condition8 = conditionResults[7];
+                
+                for (var i = 0; i < conditionResults.length; i++) {
+                    if (conditionResults[i] !== true) {
+                        allMet = false;
+                        break;
+                    }
+                }
+                
+                if (allMet) {
+                    addMessage('✅ 모든 조건을 충족합니다! AR(연차보고) 대상입니다.', 'bot');
+                    showRequirements('AR');
+                } else if (condition4 === false && condition8 === true) {
+                    addMessage('📋 주요공정 조건의 변동이 있는 일반제제입니다. IR 변경 대상입니다.', 'bot');
+                    showRequirements('IR');
+                } else {
+                    addMessage('❌ 조건을 충족하지 않습니다. Cmaj 변경 대상입니다.', 'bot');
+                    showRequirements('Cmaj');
+                }
+            }
+            else if (selectedChangeType === 'DMF연차보고') {
+                if (selectedSubType === '신청인정보변경') {
+                    var condition1 = conditionResults[0];
+                    var condition2 = conditionResults[1];
+                    
+                    if (condition2 === false) {
+                        addMessage('❌ 양수도에 따른 변경입니다. "변경등록" 대상으로 안내합니다.', 'bot');
+                        showChangeRegistration();
+                        return;
+                    }
+                    
+                    if (condition1 === true && condition2 === true) {
+                        addMessage('✅ 모든 조건을 만족합니다! "연차보고" 대상입니다.', 'bot');
+                        showRequirements();
+                    }
+                }
+                else if (selectedSubType === '제조소정보변경') {
+                    var condition1 = conditionResults[0];
+                    var condition2 = conditionResults[1];
+                    var condition3 = conditionResults[2];
+                    var condition4 = conditionResults[3];
+                    
+                    if (condition4 === false) {
+                        addMessage('❌ 제조방법 변경을 수반합니다. "변경등록" 대상으로 안내합니다.', 'bot');
+                        showRequirements('변경등록');
+                        return;
+                    }
+                    
+                    if ((condition1 === true || condition2 === true) && condition4 === true) {
+                        addMessage('✅ 1번, 2번 중 1개 이상 Yes, 4번 No입니다. "연차보고" 대상입니다.', 'bot');
+                        showRequirements('연차보고_명칭소재지');
+                    }
+                    else if (condition3 === true && condition4 === true) {
+                        addMessage('✅ 3번 Yes, 4번 No입니다. "연차보고" 대상입니다.', 'bot');
+                        showRequirements('연차보고_생산장소');
+                    }
+                }
+else if (selectedSubType === '물리화학적성질변경') {
+    var condition1 = conditionResults[0];
+    var condition2 = conditionResults[1];
+    var condition3 = conditionResults[2];
+    var condition4 = conditionResults[3];
+    
+    // 4개 조건이 모두 N인 경우 - 변경등록 대상
+    if (condition1 === false && condition2 === false && condition3 === false && condition4 === false) {
+        addMessage('❌ 1,2,3,4번이 모두 No입니다. "변경등록" 대상으로 안내합니다.', 'bot');
+        showPhysicalChemicalChangeRegistration();
+        return;
+    }
+    
+    // 4번이 Y인 경우 - 기존 변경등록 requirements 안내
+    if (condition4 === true) {
+        addMessage('✅ 4번이 Yes입니다. "변경등록" 대상으로 안내합니다.', 'bot');
+        showRequirements('변경등록');
+    }
+    // 4번이 N이고, 1,2,3번 중 하나라도 Y인 경우 - 연차보고
+    else if (condition4 === false && (condition1 === true || condition2 === true || condition3 === true)) {
+        addMessage('✅ 4번 No이고, 1,2,3번 중 하나라도 Yes입니다. "연차보고" 대상입니다.', 'bot');
+        showRequirements('연차보고');
+    }
+}
+
+                else if (selectedSubType === '안정성에관한자료') {
+                    var condition1 = conditionResults[0];
+                    var condition2 = conditionResults[1];
+                    var condition3 = conditionResults[2];
+                    
+                    if (condition1 === true) {
+                        addMessage('✅ 1번이 Yes입니다. "변경등록" 대상으로 안내합니다.', 'bot');
+                        showRequirements('변경등록_사용기간');
+                    }
+                    else if (condition2 === true && condition1 === false && condition3 === false) {
+                        addMessage('✅ 2번만 Yes입니다. "변경보고" 대상으로 안내합니다.', 'bot');
+                        showRequirements('변경보고');
+                    }
+                    else if (condition3 === true) {
+                        addMessage('✅ 3번이 Yes입니다. "변경등록" 대상으로 안내합니다.', 'bot');
+                        showRequirements('변경등록_저장조건');
+                    }
+                }
+                else if (selectedSubType === '제조방법변경') {
+                    var hasNo = false;
+                    var condition1to10AllYesOrNA = true;
+                    
+                    for (var i = 0; i < conditionResults.length; i++) {
+                        if (conditionResults[i] === false) {
+                            hasNo = true;
+                        }
+                        if (i < 10 && conditionResults[i] === false) {
+                            condition1to10AllYesOrNA = false;
+                        }
+                    }
+                    
+                    if (hasNo) {
+                        addMessage('❌ 1번부터 12번까지 하나라도 No가 있습니다. "변경등록" 대상으로 안내합니다.', 'bot');
+                        showRequirements('변경등록');
+                    }
+                    else if (condition1to10AllYesOrNA) {
+                        addMessage('✅ 1번부터 10번이 모두 Yes이거나 해당없음입니다. "변경보고" 대상으로 안내합니다.', 'bot');
+                        showRequirements('변경보고');
+                    }
+                }
+            }
+            else if (selectedSubType === '시험방법삭제') {
+                var condition1 = conditionResults[0];
+                
+                if (condition1 === false) {
+                    addMessage('❌ 별도 근거 서류 없이 삭제 불가능합니다.', 'bot');
+                    showDeletionImpossible();
+                    return;
+                } else {
+                    addMessage('✅ 조건을 충족합니다! 시험방법 삭제가 가능합니다.', 'bot');
+                    showRequirements();
+                }
+            }
+else if (selectedSubType === '시험방법변경') {
+    var condition1 = conditionResults[0]; // 동일한 분석 기술/원리, 새로운 불순물 검출 안됨
+    var condition2 = conditionResults[1]; // 비교시험에서 동등 이상 확인
+    var condition3 = conditionResults[2]; // 새로운 비표준 기술 아님
+    var condition4 = conditionResults[3]; // 무균시험법 아님
+    var condition5 = conditionResults[4]; // 예기치 않은 사례로 인한 변경 아님
+    var condition6 = conditionResults[5]; // 새로운 불순물 검출 안됨
+    
+    // 1\~6 모두 Y인 경우 AR
+    if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
+        addMessage('✅ 1\~6번 조건을 모두 만족합니다! AR 변경 수준으로 안내합니다.', 'bot');
+        showRequirements('AR');
+    }
+    // 1번 N, 2\~6 모두 Y인 경우 Cmin
+    else if (!condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
+        addMessage('📋 1번 조건은 No이지만 2\~6번 조건을 모두 만족합니다. Cmin 변경 수준으로 안내합니다.', 'bot');
+        showRequirements('Cmin');
+    }
+    // 2\~6 중 N가 있는 경우
+    else {
+        addMessage('❌ 2\~6번 조건 중 일부를 만족하지 않습니다. 시험방법 변경에 대한 타당성 검토가 필요합니다.', 'bot');
+        showRequirements('타당성검토');
+    }
+}
+
+else {
+    var allMet = true;
+    for (var i = 0; i < conditionResults.length; i++) {
+        if (conditionResults[i] !== true) {
+            allMet = false;
+            break;
+        }
+    }
+
+    if (allMet) {
+        addMessage('✅ 모든 조건을 충족합니다!', 'bot');
+        showRequirements();
+    } else {
+        addMessage('❌ 일부 조건을 충족하지 않습니다.', 'bot');
+        
+        // 자사기준→공정서 변경의 경우
+if (selectedChangeType === '기준변경' && selectedSubType === '자사기준공정서') {
+    addMessage('"기준 완화" 혹은 "기준 강화" 항목에서 검토해주시기 바랍니다.', 'bot');
+    showStandardChangeGuidance();
+    return;
+}
+        // 기준 강화의 경우
+        else if (selectedChangeType === '기준변경' && selectedSubType === '기준강화') {
+            addMessage('기준 변경에 대한 타당성 검토 후 변경 가능 여부 판단 가능', 'bot');
+            showValidityReview();
+        }
+        // 기준 완화의 경우
+        else if (selectedChangeType === '기준변경' && selectedSubType === '기준완화') {
+            addMessage('기준 변경에 대한 타당성 검토 후 변경 가능 여부 판단 가능', 'bot');
+            showValidityReview();
+        }
+        else {
+            addMessage('다른 카테고리를 검토해야 할 수 있습니다.', 'bot');
+        }
+    }
+}
+        }
+
+        function showChangeImpossible() {
+            document.getElementById('conditionsCheck').style.display = 'none';
+            
+            var requirementsDiv = document.getElementById('requirements');
+            var html = '<div class="alert error">';
+            
+            if (selectedSubType === 'GMP적합판정서') {
+                html += '<h3>❌ 변경 불가</h3>';
+                html += '<p><strong>GMP 적합판정서가 없어 제조원 변경이 불가능합니다.</strong></p>';
+                html += '<p>제조원 변경을 위해서는 반드시 다음 중 하나가 필요합니다:</p>';
+                html += '<ul style="margin-top: 10px; margin-left: 20px;">';
+                html += '<li>국내 제조소: GMP 적합판정서</li>';
+                html += '<li>해외 제조소: 제조증명서</li>';
+                html += '</ul>';
+                html += '<p style="margin-top: 15px;">해당 서류를 준비한 후 다시 시도해주세요.</p>';
+            } else if (selectedSubType === '공정관리시험기준변경') {
+                html += '<h3>❌ 공정관리시험 기준 변경 불가</h3>';
+                html += '<p><strong>조건 2를 만족하지 않아 변경이 불가능합니다.</strong></p>';
+                html += '<p>제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제로 인한 변경은 별도 검토가 필요합니다.</p>';
+            } else if (selectedSubType === '공정관리시험항목삭제') {
+                html += '<h3>❌ 공정관리시험 항목 삭제 불가</h3>';
+                html += '<p><strong>충족조건을 만족하지 않아 삭제가 불가능합니다.</strong></p>';
+                html += '<p>다음 조건을 모두 만족해야 합니다:</p>';
+                html += '<ul style="margin-top: 10px; margin-left: 20px;">';
+                html += '<li>예기치 않은 사례로 인한 변경이 아님</li>';
+                html += '<li>삭제 항목이 불필요하거나 생략 가능하며 품질특성에 영향이 없거나 적음</li>';
+                html += '</ul>';
+            } else if (selectedSubType === '공정관리시험기준추가및방법변경') {
+                html += '<h3>❌ 공정관리시험 기준 추가 및 변경 불가</h3>';
+                html += '<p><strong>규격 미충족으로 인해 기준 추가 및 변경이 불가능합니다.</strong></p>';
+                html += '<p>제조 중에 발생하는 예기치 않은 사례로 인한 규격 미충족 또는 안정성 문제로 인한 변경은 별도 검토가 필요합니다.</p>';
+            } else if (selectedSubType === '제조규모변경') {
+                html += '<h3>❌ 제조규모 변경 불가</h3>';
+                html += '<p><strong>필수 조건을 충족하지 않아 변경이 불가능합니다.</strong></p>';
+                html += '<p>제조규모 변경을 위해서는 최소한 다음 조건들을 만족해야 합니다:</p>';
+                html += '<ul style="margin-top: 10px; margin-left: 20px;">';
+                html += '<li>해당 변경은 제제의 재현성 및/또는 일관성에 영향을 미치지 않는다</li>';
+                html += '<li>제조장비의 작동원리 및 디자인이 동일하다</li>';
+                html += '<li>제조 공정 밸리데이션 실시 계획서가 있거나 성공적으로 수행되었다</li>';
+                html += '<li>예기치 않은 사례 혹은 안정성 문제로 인한 변경이 아니다</li>';
+                html += '</ul>';
+                html += '<p style="margin-top: 15px;">조건을 재검토하거나 다른 변경 방법을 고려해주세요.</p>';
+            }
+            
+            html += '</div>';
+            
+            requirementsDiv.innerHTML = html;
+            requirementsDiv.style.display = 'block';
+            currentStep = 'requirements';
+        }
+function showStandardChangeGuidance() {
+    document.getElementById('conditionsCheck').style.display = 'none';
+    
+    var requirementsDiv = document.getElementById('requirements');
+    var html = '<div class="alert warning">';
+    html += '<h3>📋 다른 항목에서 검토 필요</h3>';
+    html += '<p><strong>하나라도 N인 경우 다른 기준변경 항목에서 검토해주시기 바랍니다.</strong></p>';
+    html += '<p>다음 항목 중 해당하는 것을 선택하여 다시 검토해주세요:</p>';
+    html += '<ul style="margin-top: 10px; margin-left: 20px;">';
+    html += '<li><strong>기준 강화:</strong> 현재 허가된 범위 내에서 기준을 더 엄격하게 변경</li>';
+    html += '<li><strong>기준 완화:</strong> 현재 허가된 범위에서 기준을 완화하여 변경</li>';
+    html += '</ul>';
+    html += '<p style="margin-top: 15px;">해당 항목으로 이동하여 조건을 다시 확인해주세요.</p>';
+    html += '</div>';
+    
+    requirementsDiv.innerHTML = html;
+    requirementsDiv.style.display = 'block';
+    currentStep = 'requirements';
+}
+
+function showGMPRequirement() {
+    document.getElementById('conditionsCheck').style.display = 'none';
+    
+    var requirementsDiv = document.getElementById('requirements');
+    var html = '<div class="alert error">';
+    html += '<h3>❌ 제조원 변경 불가</h3>';
+    html += '<p><strong>GMP 적합판정서가 없어 제조원 변경이 불가능합니다.</strong></p>';
+    html += '<p>제조원 변경을 위해서는 반드시 다음 중 하나가 필요합니다:</p>';
+    html += '<ul style="margin-top: 10px; margin-left: 20px;">';
+    html += '<li><strong>국내 제조소:</strong> GMP 적합판정서</li>';
+    html += '<li><strong>해외 제조소:</strong> 제조증명서</li>';
+    html += '</ul>';
+    html += '<p style="margin-top: 15px; color: #721c24;"><strong>⚠️ 중요:</strong> 해당 서류를 먼저 준비한 후 다시 검토를 진행해주세요.</p>';
+    html += '</div>';
+    
+    requirementsDiv.innerHTML = html;
+    requirementsDiv.style.display = 'block';
+    currentStep = 'requirements';
+}
+
+        function showRequirements(categoryOverride) {
+            document.getElementById('conditionsCheck').style.display = 'none';
+            
+            var requirementsDiv = document.getElementById('requirements');
+            var data;
+            
+            // 공정관리시험 변경의 경우
+            if (selectedChangeType === '제조방법변경' && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'] && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+                data = changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType];
+            }
+            // 원료의약품 관련 변경의 경우
+            else if (selectedSubType === '원료의약품제조원변경' || selectedSubType === '원료의약품제조공정변경') {
+                data = changeData[selectedChangeType].subTypes[selectedSubType].drugTypes[selectedDrugType];
+            } 
+            // 일반적인 경우
+            else {
+                data = changeData[selectedChangeType].subTypes[selectedSubType];
+            }
+            
+            var requirements;
+            var categoryName;
+            
+            if (data.category === '조건부' || data.category === '복합조건' || data.category === '특수조건' || data.category === '한약조건부') {
+                requirements = data.requirements[categoryOverride];
+                categoryName = categoryOverride;
+            } else if (data.category === '조건부삭제' || data.category === '조건부추가') {
+                requirements = data.requirements;
+                categoryName = 'AR';
+            } else {
+                requirements = data.requirements;
+                categoryName = data.category;
+            }
+            
+            var html = '<h3>📄 제출 요구사항 (' + categoryName + ')</h3>';
+            if (selectedDrugType) {
+                html += '<p><strong>대상:</strong> ' + selectedDrugType + '</p>';
+            }
+            html += '<p>다음 서류들을 준비해주세요:</p>';
+            
+            for (var i = 0; i < requirements.length; i++) {
+                html += '<div class="requirement-item">' + (i + 1) + '. ' + requirements[i] + '</div>';
+            }
+            
+            // 공정관리시험 변경 관련 안내사항 추가
+            if (selectedChangeType === '제조방법변경' && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'] && 
+                changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+                html += '<div class="alert warning">';
+                html += '<strong>⚠️ 완제 공정관리시험 변경 안내사항:</strong><br>';
+                
+                if (selectedSubType === '공정관리시험기준변경') {
+                    if (categoryName === 'AR') {
+                        html += '• 1,2,3 조건을 모두 만족하여 AR(연차보고) 변경으로 분류됩니다<br>';
+                        html += '• 공정관리 기준 범위 내 변경이며 시험방법에는 변경이 없습니다';
+                    } else if (categoryName === 'Cmaj') {
+                        html += '• 조건 2만 만족하여 Cmaj 변경으로 분류됩니다<br>';
+                        html += '• 의약품동등성시험 자료가 필요할 수 있습니다';
+                    }
+                } else if (selectedSubType === '공정관리시험항목삭제') {
+                    html += '• 충족조건을 만족하여 AR(연차보고) 변경 수준입니다<br>';
+                    html += '• 삭제 항목이 제제의 주요 품질특성에 미치는 영향이 없거나 적어야 합니다';
+                } else if (selectedSubType === '공정관리시험기준추가및방법변경') {
+                    html += '• 규격을 충족하여 AR(연차보고) 변경 수준입니다<br>';
+                    html += '• 새로운 시험법 사용 시 밸리데이션 자료가 필요합니다';
+                }
+                html += '</div>';
+            }
+            
+            if (selectedChangeType === '주성분제조원변경') {
+                html += '<div class="alert warning">';
+                html += '<strong>⚠️ 중요 안내사항:</strong><br>';
+                html += '• 주성분 제조원 변경 시 제조방법 변경 자료도 함께 구비 필요합니다<br>';
+                html += '• 제조방법 CTD 미전환일 경우 제조방법 CTD 작성 필요합니다<br>';
+                
+                if (selectedDrugType === '합성의약품') {
+                    html += '• 결정형, 용해도, 입자도 차이에 따라 비교용출 시험 조건이 달라집니다<br>';
+                    html += '• 차이 있는 경우: 고시조건 비교용출<br>';
+                    html += '• 차이 없는 경우: 기시조건 비교용출';
+                    
+                    if (selectedSubType === '원료의약품제조공정변경') {
+                        if (categoryName === 'IR') {
+                            html += '<br>• 1\~9번 조건을 모두 만족하여 IR 변경 수준입니다';
+                        } else if (categoryName === 'Cmin') {
+                            html += '<br>• 1,2,3,5,6,7,9번 조건 또는 1-6번 조건을 만족하여 Cmin 변경 수준입니다';
+                        } else if (categoryName === 'Cmaj') {
+                            html += '<br>• IR, Cmin 조건을 만족하지 않아 Cmaj 변경 수준입니다';
+                        }
+                    }
+                } else if (selectedDrugType === '한약(생약)제제') {
+                    html += '• 한약(생약)제제의 경우 성분프로파일 동등성 평가가 중요합니다<br>';
+                    
+                    if (selectedSubType === '원료의약품제조공정변경') {
+                        if (categoryName === 'IR') {
+                            html += '• 1\~5번 조건을 모두 만족하여 IR 변경 수준입니다';
+                        } else if (categoryName === 'Cmin') {
+                            html += '• 건조방식 변경 또는 수율변경으로 Cmin 변경 수준입니다';
+                        } else if (categoryName === 'Cmaj') {
+                            html += '• 주요 조건을 만족하지 않아 Cmaj 변경 수준입니다';
+                        }
+                    } else {
+                        html += '• 모든 조건을 만족해야 IR 수준, 하나라도 불만족시 Cmaj 수준 변경';
+                    }
+                }
+                html += '</div>';
+            }
+            
+            if (selectedChangeType === '완제제조원변경') {
+                html += '<div class="alert warning">';
+                html += '<strong>⚠️ 중요 안내사항:</strong><br>';
+                html += '• 제조원 변경 시 제조방법 변경에 해당하는 사항도 병행 검토 및 서류 제출이 필요합니다<br>';
+                if (categoryName === 'Cmin') {
+                    html += '• 1차 포장제조소 변경 수반될 경우 P.8.2 안정성 시험 계획 및 이행서약 제출 필요합니다<br>';
+                    html += '• Cmin 변경으로 분류됩니다';
+                } else if (categoryName === 'Cmaj') {
+                    html += '• 의동시험 수준은 제조방법 변경 수준에 따라 변동됩니다<br>';
+                    html += '• Cmaj 변경으로 분류됩니다';
+                }
+                html += '</div>';
+            }
+            
+            requirementsDiv.innerHTML = html;
+            requirementsDiv.style.display = 'block';
+            currentStep = 'requirements';
+            
+            addMessage('필요한 서류 목록을 확인해주세요!', 'bot');
+        }
+
+        function goBack() {
+            if (currentStep === 'sub') {
+                document.getElementById('subMenu').style.display = 'none';
+                document.getElementById('mainMenu').style.display = 'grid';
+                document.getElementById('backBtn').style.display = 'none';
+                currentStep = 'main';
+            } else if (currentStep === 'processControlSub') {
+                document.getElementById('conditionsCheck').style.display = 'none';
+                document.getElementById('subMenu').style.display = 'grid';
+                currentStep = 'sub';
+                selectedSubType = '공정관리시험변경';
+            } else if (currentStep === 'drugType') {
+                document.getElementById('conditionsCheck').style.display = 'none';
+                document.getElementById('subMenu').style.display = 'grid';
+                currentStep = 'sub';
+                selectedDrugType = '';
+            } else if (currentStep === 'conditions') {
+                document.getElementById('conditionsCheck').style.display = 'none';
+                if (selectedSubType === '원료의약품제조원변경' || selectedSubType === '원료의약품제조공정변경') {
+                    showDrugTypeSelection();
+                } else if (selectedChangeType === '제조방법변경' && 
+                          (selectedSubType === '공정관리시험기준변경' || 
+                           selectedSubType === '공정관리시험항목삭제' || 
+                           selectedSubType === '공정관리시험기준추가및방법변경')) {
+                    showProcessControlSubMenu();
+                } else {
+                    document.getElementById('subMenu').style.display = 'grid';
+                    currentStep = 'sub';
+                }
+            } else if (currentStep === 'requirements') {
+                document.getElementById('requirements').style.display = 'none';
+                
+                if (selectedSubType === '시험방법변경') {
+                    document.getElementById('subMenu').style.display = 'grid';
+                    currentStep = 'sub';
+                } else {
+                    document.getElementById('conditionsCheck').style.display = 'block';
+                    currentStep = 'conditions';
+                }
+            }
+        }
+        
+        function showDeletionImpossible() {
+            document.getElementById('conditionsCheck').style.display = 'none';
+            
+            var requirementsDiv = document.getElementById('requirements');
+            var html = '<div class="alert error">';
+            html += '<h3>❌ 시험방법 삭제 불가</h3>';
+            html += '<p><strong>별도 근거 서류 없이 삭제 불가능합니다.</strong></p>';
+            html += '<p>시험방법 삭제를 위해서는 다음 조건을 만족해야 합니다:</p>';
+            html += '<ul style="margin-top: 10px; margin-left: 20px;">';
+            html += '<li>삭제된 시험방법은 대체 방법이어야 함</li>';
+            html += '<li>현재 허가된 시험방법과 동등해야 함</li>';
+            html += '</ul>';
+            html += '<p style="margin-top: 15px;">조건을 만족하지 않는 경우 별도 검토가 필요합니다.</p>';
+            html += '</div>';
+            
+            requirementsDiv.innerHTML = html;
+            requirementsDiv.style.display = 'block';
+            currentStep = 'requirements';
+        }
+
+        function showChangeRegistration() {
+            document.getElementById('conditionsCheck').style.display = 'none';
+            
+            var requirementsDiv = document.getElementById('requirements');
+            var html = '<div class="alert error">';
+            html += '<h3>📋 변경등록 대상</h3>';
+            html += '<p><strong>양수도에 따른 변경으로 "변경등록" 대상입니다.</strong></p>';
+            html += '<p>변경등록 절차를 통해 진행해주세요.</p>';
+            html += '</div>';
+            
+            requirementsDiv.innerHTML = html;
+            requirementsDiv.style.display = 'block';
+            currentStep = 'requirements';
+        }
+
+function showPhysicalChemicalChangeRegistration() {
+    document.getElementById('conditionsCheck').style.display = 'none';
+    
+    var requirementsDiv = document.getElementById('requirements');
+    var html = '<h3>📋 변경등록 대상 - 물리화학적성질 변경</h3>';
+    html += '<p><strong>4개 조건이 모두 No로 "변경등록" 대상입니다.</strong></p>';
+    html += '<p>다음 서류들을 준비해주세요:</p>';
+    
+    html += '<div class="requirement-item">1. DMF 업데이트본</div>';
+    html += '<div class="requirement-item">2. 변경대비표</div>';
+    html += '<div class="requirement-item">3. 기타 서류 (케이스별 검토 필요)</div>';
+    
+    html += '<div class="alert warning">';
+    html += '<strong>⚠️ 안내사항:</strong><br>';
+    html += '• 기타 서류는 변경 내용에 따라 달라질 수 있습니다<br>';
+    html += '• 구체적인 서류 목록은 담당자와 상담 후 확정하시기 바랍니다';
+    html += '</div>';
+    
+    requirementsDiv.innerHTML = html;
+    requirementsDiv.style.display = 'block';
+    currentStep = 'requirements';
+}
+
+function showValidityReview() {
+    document.getElementById('conditionsCheck').style.display = 'none';
+    
+    var requirementsDiv = document.getElementById('requirements');
+    var html = '<h3>📋 타당성 검토 필요</h3>';
+    html += '<p><strong>기준 변경에 대한 타당성 검토 후 변경 가능 여부 판단 가능</strong></p>';
+    html += '<p>다음 사항을 검토해주세요:</p>';
+    
+    html += '<div class="requirement-item">1. 변경 사유의 타당성</div>';
+    html += '<div class="requirement-item">2. 변경이 제품 품질에 미치는 영향</div>';
+    html += '<div class="requirement-item">3. 관련 규정 및 가이드라인 준수 여부</div>';
+    html += '<div class="requirement-item">4. 추가 시험 자료의 필요성</div>';
+    
+    html += '<div class="alert warning">';
+    html += '<strong>⚠️ 안내사항:</strong><br>';
+    html += '• 조건을 만족하지 않는 경우 별도의 타당성 검토가 필요합니다<br>';
+    html += '• 담당자와 상담하여 구체적인 변경 방안을 검토하시기 바랍니다<br>';
+    html += '• 필요시 추가 시험 자료나 근거 서류가 요구될 수 있습니다';
+    html += '</div>';
+    
+    requirementsDiv.innerHTML = html;
+    requirementsDiv.style.display = 'block';
+    currentStep = 'requirements';
+}
+
+        function resetChat() {
+            document.getElementById('subMenu').style.display= 'none';
+            document.getElementById('conditionsCheck').style.display = 'none';
+            document.getElementById('requirements').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'none';
+            
+            document.getElementById('mainMenu').style.display = 'grid';
+            
+            var chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '<div class="message bot-message"><div class="message-content">안녕하세요! 어떤 종류의 변경을 진행하시나요?</div></div>';
+            
+            currentStep = 'main';
+            selectedChangeType = '';
+            selectedSubType = '';
+            selectedDrugType = '';
+            conditionResults = [];
+        }
+    </script>
+
+<script>
+// ===== v1.1 export / UI patch =====
+var currentResultData = null;
+
+function exportSafeArray(v) { return Array.isArray(v) ? v : []; }
+function exportAnswerToText(v) {
+  if (v === true) return '예 (Y)';
+  if (v === false) return '아니오 (N)';
+  return '미응답';
+}
+function exportXmlEscape(v) {
+  return String(v == null ? '' : v)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+function setExportUiVisible(visible) {
+  var btn = document.getElementById('exportExcelBtn');
+  var meta = document.getElementById('exportMetaSection');
+  if (btn) btn.style.display = visible ? 'inline-block' : 'none';
+  if (meta) meta.style.display = visible ? 'block' : 'none';
+}
+function resetExportState(clearInputs) {
+  currentResultData = null;
+  setExportUiVisible(false);
+  if (clearInputs) {
+    var n = document.getElementById('taskNameInput');
+    var s = document.getElementById('taskSummaryInput');
+    if (n) n.value = '';
+    if (s) s.value = '';
+  }
+}
+function getSelectedDataForExport() {
+  if (selectedChangeType === '제조방법변경' &&
+      changeData[selectedChangeType] &&
+      changeData[selectedChangeType].subTypes['공정관리시험변경'] &&
+      changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+    return changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType];
+  }
+  if (selectedSubType === '원료의약품제조원변경' || selectedSubType === '원료의약품제조공정변경') {
+    return changeData[selectedChangeType].subTypes[selectedSubType].drugTypes[selectedDrugType];
+  }
+  return changeData[selectedChangeType].subTypes[selectedSubType];
+}
+function captureCurrentResult(categoryName, requirements, notes, conditionQuestions) {
+  var selectedData = getSelectedDataForExport() || {};
+  currentResultData = {
+    categoryName: categoryName || '',
+    changeType: selectedChangeType || '',
+    changeTypeTitle: (selectedChangeType && changeData[selectedChangeType]) ? changeData[selectedChangeType].title : '',
+    subType: selectedSubType || '',
+    subTypeTitle: selectedData.title || '',
+    drugType: selectedDrugType || '',
+    createdAt: new Date().toLocaleString('ko-KR'),
+    conditions: exportSafeArray(conditionQuestions).map(function(q, idx) {
+      return { index: idx + 1, question: q, answer: exportAnswerToText(conditionResults[idx]) };
+    }),
+    requirements: exportSafeArray(requirements).map(function(item, idx) {
+      return { no: idx + 1, item: item };
+    }),
+    notes: exportSafeArray(notes)
+  };
+}
+
+function colLetter(num) {
+  var s = '';
+  while (num > 0) {
+    var m = (num - 1) % 26;
+    s = String.fromCharCode(65 + m) + s;
+    num = Math.floor((num - m - 1) / 26);
+  }
+  return s;
+}
+
+function buildSheetRows(data) {
+  var taskName = document.getElementById('taskNameInput') ? document.getElementById('taskNameInput').value : '';
+  var taskSummary = document.getElementById('taskSummaryInput') ? document.getElementById('taskSummaryInput').value : '';
+  var rows = [];
+
+  rows.push([{v:'허가 변경 서류 안내 가이드 v1.1 - 제출요구사항 정리', s:1}, {v:'', s:1}, {v:'', s:1}, {v:'', s:1}, {v:'', s:1}]);
+  rows.push([{v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}]);
+  rows.push([{v:'변경사항 정보', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}]);
+  rows.push([{v:'과제/업무명', s:3}, {v:taskName, s:4}, {v:'', s:4}, {v:'', s:4}, {v:'', s:4}]);
+  rows.push([{v:'업무 개요', s:3}, {v:taskSummary, s:4}, {v:'', s:4}, {v:'', s:4}, {v:'', s:4}]);
+  rows.push([{v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}]);
+  rows.push([{v:'선택 및 판정 정보', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}]);
+
+  var infoRows = [
+    ['가이드', '허가 변경 서류 안내 가이드 v1.1'],
+    ['변경 대분류', data.changeType || ''],
+    ['변경 대분류 제목', data.changeTypeTitle || ''],
+    ['세부 유형', data.subType || ''],
+    ['세부 유형 제목', data.subTypeTitle || ''],
+    ['대상', data.drugType || ''],
+    ['판정 구분', data.categoryName || ''],
+    ['생성일시', data.createdAt || '']
+  ];
+  for (var i = 0; i < infoRows.length; i++) {
+    rows.push([{v:infoRows[i][0], s:3}, {v:infoRows[i][1], s:4}, {v:'', s:4}, {v:'', s:4}, {v:'', s:4}]);
+  }
+
+  if (data.conditions && data.conditions.length > 0) {
+    rows.push([{v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}]);
+    rows.push([{v:'제출요구사항 결정을 위해 사용자가 선택한 값', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}]);
+    rows.push([{v:'No.', s:5}, {v:'조건 문구', s:5}, {v:'선택값', s:5}, {v:'', s:5}, {v:'', s:5}]);
+    for (var j = 0; j < data.conditions.length; j++) {
+      var c = data.conditions[j];
+      rows.push([{v:String(c.index), s:7}, {v:c.question, s:6}, {v:c.answer, s:6}, {v:'', s:6}, {v:'', s:6}]);
+    }
+  }
+
+  rows.push([{v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}]);
+  rows.push([{v:'제출 요구사항', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}]);
+  rows.push([{v:'No.', s:5}, {v:'제출 요구사항', s:5}, {v:'준비완료여부', s:5}, {v:'준비 담당자', s:5}, {v:'준비 계획일정', s:5}]);
+  for (var k = 0; k < data.requirements.length; k++) {
+    var r = data.requirements[k];
+    rows.push([{v:String(r.no), s:7}, {v:r.item, s:6}, {v:'', s:6}, {v:'', s:6}, {v:'', s:6}]);
+  }
+
+  if (data.notes && data.notes.length > 0) {
+    rows.push([{v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}, {v:'', s:0}]);
+    rows.push([{v:'주요 안내사항', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}, {v:'', s:2}]);
+    rows.push([{v:'No.', s:5}, {v:'안내사항', s:5}, {v:'', s:5}, {v:'', s:5}, {v:'', s:5}]);
+    for (var n = 0; n < data.notes.length; n++) {
+      rows.push([{v:String(n + 1), s:7}, {v:data.notes[n], s:6}, {v:'', s:6}, {v:'', s:6}, {v:'', s:6}]);
+    }
+  }
+
+  return rows;
+}
+
+function buildMerges(data) {
+  var rows = buildSheetRows(data);
+  var merges = ['A1:E1', 'A3:E3', 'B4:E4', 'B5:E5', 'A7:E7'];
+  var rowPtr = 15; // after row 15 info end based on current layout
+  if (data.conditions && data.conditions.length > 0) {
+    merges.push('A17:E17');
+    rowPtr = 18 + data.conditions.length;
+  } else {
+    rowPtr = 16;
+  }
+  merges.push('A' + (rowPtr + 1) + ':E' + (rowPtr + 1));
+  if (data.notes && data.notes.length > 0) {
+    var notesHeaderRow = rowPtr + 4 + data.requirements.length;
+    merges.push('A' + notesHeaderRow + ':E' + notesHeaderRow);
+  }
+  return merges;
+}
+
+function makeSheetXml(data) {
+  var rows = buildSheetRows(data);
+  var merges = buildMerges(data);
+  var xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+  xml += '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">';
+  xml += '<sheetViews><sheetView workbookViewId="0"/></sheetViews>';
+  xml += '<sheetFormatPr defaultRowHeight="22"/>';
+  xml += '<cols>';
+  xml += '<col min="1" max="1" width="10" customWidth="1"/>';
+  xml += '<col min="2" max="2" width="80" customWidth="1"/>';
+  xml += '<col min="3" max="3" width="15" customWidth="1"/>';
+  xml += '<col min="4" max="4" width="18" customWidth="1"/>';
+  xml += '<col min="5" max="5" width="18" customWidth="1"/>';
+  xml += '</cols>';
+  xml += '<sheetData>';
+  for (var r = 0; r < rows.length; r++) {
+    xml += '<row r="' + (r + 1) + '">';
+    for (var c = 0; c < rows[r].length; c++) {
+      var cell = rows[r][c];
+      var ref = colLetter(c + 1) + (r + 1);
+      var sid = (cell.s != null) ? cell.s : 0;
+      if (cell.v === '') {
+        xml += '<c r="' + ref + '" s="' + sid + '"/>';
+      } else {
+        xml += '<c r="' + ref + '" s="' + sid + '" t="inlineStr"><is><t xml:space="preserve">' + exportXmlEscape(cell.v) + '</t></is></c>';
+      }
+    }
+    xml += '</row>';
+  }
+  xml += '</sheetData>';
+  if (merges.length > 0) {
+    xml += '<mergeCells count="' + merges.length + '">';
+    for (var i = 0; i < merges.length; i++) {
+      xml += '<mergeCell ref="' + merges[i] + '"/>';
+    }
+    xml += '</mergeCells>';
+  }
+  xml += '<pageMargins left="0.5" right="0.5" top="0.6" bottom="0.6" header="0.3" footer="0.3"/>';
+  xml += '</worksheet>';
+  return xml;
+}
+
+function makeStylesXml() {
+  return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+    '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+    '<fonts count="4">' +
+      '<font><sz val="11"/><name val="맑은 고딕"/><family val="2"/></font>' +
+      '<font><b/><sz val="15"/><name val="맑은 고딕"/><family val="2"/></font>' +
+      '<font><b/><sz val="11"/><name val="맑은 고딕"/><family val="2"/></font>' +
+      '<font><sz val="11"/><name val="맑은 고딕"/><family val="2"/></font>' +
+    '</fonts>' +
+    '<fills count="6">' +
+      '<fill><patternFill patternType="none"/></fill>' +
+      '<fill><patternFill patternType="gray125"/></fill>' +
+      '<fill><patternFill patternType="solid"><fgColor rgb="FFEAF4FF"/><bgColor indexed="64"/></patternFill></fill>' +
+      '<fill><patternFill patternType="solid"><fgColor rgb="FFF9E3E3"/><bgColor indexed="64"/></patternFill></fill>' +
+      '<fill><patternFill patternType="solid"><fgColor rgb="FFE8F2E8"/><bgColor indexed="64"/></patternFill></fill>' +
+      '<fill><patternFill patternType="solid"><fgColor rgb="FFF6F8FA"/><bgColor indexed="64"/></patternFill></fill>' +
+    '</fills>' +
+    '<borders count="2">' +
+      '<border><left/><right/><top/><bottom/><diagonal/></border>' +
+      '<border><left style="thin"><color rgb="FFD0D7DE"/></left><right style="thin"><color rgb="FFD0D7DE"/></right><top style="thin"><color rgb="FFD0D7DE"/></top><bottom style="thin"><color rgb="FFD0D7DE"/></bottom><diagonal/></border>' +
+    '</borders>' +
+    '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>' +
+    '<cellXfs count="8">' +
+      '<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="2" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="3" fillId="5" borderId="1" xfId="0" applyFill="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="2" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf>' +
+      '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>' +
+    '</cellXfs>' +
+    '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>' +
+    '</styleSheet>';
+}
+
+function buildXlsxParts(data) {
+  return {
+    '[Content_Types].xml': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/><Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/></Types>',
+    '_rels/.rels': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/></Relationships>',
+    'docProps/core.xml': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>허가 변경 서류 안내 가이드 v1.1</dc:title><dc:creator>Enterprise Copilot</dc:creator><cp:lastModifiedBy>Enterprise Copilot</cp:lastModifiedBy><dcterms:created xsi:type="dcterms:W3CDTF">' + new Date().toISOString() + '</dcterms:created><dcterms:modified xsi:type="dcterms:W3CDTF">' + new Date().toISOString() + '</dcterms:modified></cp:coreProperties>',
+    'docProps/app.xml': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"><Application>Microsoft Excel</Application><DocSecurity>0</DocSecurity><ScaleCrop>false</ScaleCrop><HeadingPairs><vt:vector size="2" baseType="variant"><vt:variant><vt:lpstr>Worksheets</vt:lpstr></vt:variant><vt:variant><vt:i4>1</vt:i4></vt:variant></vt:vector></HeadingPairs><TitlesOfParts><vt:vector size="1" baseType="lpstr"><vt:lpstr>제출요구사항</vt:lpstr></vt:vector></TitlesOfParts></Properties>',
+    'xl/workbook.xml': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="제출요구사항" sheetId="1" r:id="rId1"/></sheets></workbook>',
+    'xl/_rels/workbook.xml.rels': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>',
+    'xl/styles.xml': makeStylesXml(),
+    'xl/worksheets/sheet1.xml': makeSheetXml(data)
+  };
+}
+
+var crcTable = null;
+function makeCrcTable() {
+  var c, table = [];
+  for (var n = 0; n < 256; n++) {
+    c = n;
+    for (var k = 0; k < 8; k++) c = ((c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));
+    table[n] = c >>> 0;
+  }
+  return table;
+}
+function crc32(bytes) {
+  if (!crcTable) crcTable = makeCrcTable();
+  var crc = 0 ^ (-1);
+  for (var i = 0; i < bytes.length; i++) crc = (crc >>> 8) ^ crcTable[(crc ^ bytes[i]) & 0xFF];
+  return (crc ^ (-1)) >>> 0;
+}
+function strToBytes(str) { return new TextEncoder().encode(str); }
+function pushU16(arr, val) { arr.push(val & 0xFF, (val >>> 8) & 0xFF); }
+function pushU32(arr, val) { arr.push(val & 0xFF, (val >>> 8) & 0xFF, (val >>> 16) & 0xFF, (val >>> 24) & 0xFF); }
+function buildZip(fileMap) {
+  var localParts = [], centralParts = [], offset = 0, fileNames = Object.keys(fileMap);
+  for (var i = 0; i < fileNames.length; i++) {
+    var name = fileNames[i], nameBytes = strToBytes(name), contentBytes = strToBytes(fileMap[name]), crc = crc32(contentBytes), local = [];
+    pushU32(local, 0x04034b50); pushU16(local, 20); pushU16(local, 0); pushU16(local, 0); pushU16(local, 0); pushU16(local, 0);
+    pushU32(local, crc); pushU32(local, contentBytes.length); pushU32(local, contentBytes.length); pushU16(local, nameBytes.length); pushU16(local, 0);
+    localParts.push(new Uint8Array(local)); localParts.push(nameBytes); localParts.push(contentBytes);
+    var central = [];
+    pushU32(central, 0x02014b50); pushU16(central, 20); pushU16(central, 20); pushU16(central, 0); pushU16(central, 0); pushU16(central, 0); pushU16(central, 0);
+    pushU32(central, crc); pushU32(central, contentBytes.length); pushU32(central, contentBytes.length); pushU16(central, nameBytes.length); pushU16(central, 0); pushU16(central, 0); pushU16(central, 0); pushU16(central, 0); pushU32(central, 0); pushU32(central, offset);
+    centralParts.push(new Uint8Array(central)); centralParts.push(nameBytes);
+    offset += local.length + nameBytes.length + contentBytes.length;
+  }
+  var centralSize = 0; for (var j = 0; j < centralParts.length; j++) centralSize += centralParts[j].length;
+  var end = []; pushU32(end, 0x06054b50); pushU16(end, 0); pushU16(end, 0); pushU16(end, fileNames.length); pushU16(end, fileNames.length); pushU32(end, centralSize); pushU32(end, offset); pushU16(end, 0);
+  return new Blob(localParts.concat(centralParts).concat([new Uint8Array(end)]), { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+}
+
+function exportCurrentResultToExcel() {
+  if (!currentResultData || !currentResultData.requirements || currentResultData.requirements.length === 0) {
+    alert('저장할 제출 요구사항이 없습니다.');
+    return;
+  }
+  var blob = buildZip(buildXlsxParts(currentResultData));
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  var ts = new Date();
+  var pad = function(n){ return String(n).padStart(2, '0'); };
+  var stamp = ts.getFullYear() + pad(ts.getMonth() + 1) + pad(ts.getDate()) + '_' + pad(ts.getHours()) + pad(ts.getMinutes()) + pad(ts.getSeconds());
+  var namePart = (currentResultData.subTypeTitle || currentResultData.subType || '제출요구사항').replace(/[\\/:*?"<>|]/g, '_');
+  a.href = url;
+  a.download = '허가변경_제출요구사항_' + namePart + '_' + stamp + '.xlsx';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+showRequirements = function(categoryOverride) {
+  document.getElementById('conditionsCheck').style.display = 'none';
+  var requirementsDiv = document.getElementById('requirements');
+  var data;
+  if (selectedChangeType === '제조방법변경' && changeData[selectedChangeType].subTypes['공정관리시험변경'] && changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+    data = changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType];
+  } else if (selectedSubType === '원료의약품제조원변경' || selectedSubType === '원료의약품제조공정변경') {
+    data = changeData[selectedChangeType].subTypes[selectedSubType].drugTypes[selectedDrugType];
+  } else {
+    data = changeData[selectedChangeType].subTypes[selectedSubType];
+  }
+  var requirements, categoryName;
+  if (data.category === '조건부' || data.category === '복합조건' || data.category === '특수조건' || data.category === '한약조건부') {
+    requirements = data.requirements[categoryOverride];
+    categoryName = categoryOverride;
+  } else if (data.category === '조건부삭제' || data.category === '조건부추가') {
+    requirements = data.requirements;
+    categoryName = 'AR';
+  } else {
+    requirements = data.requirements;
+    categoryName = data.category;
+  }
+  requirements = exportSafeArray(requirements);
+  var notes = [];
+  var html = '<h3>📄 제출 요구사항 (' + categoryName + ')</h3>';
+  if (selectedDrugType) html += '<p><strong>대상:</strong> ' + selectedDrugType + '</p>';
+  html += '<p>다음 서류들을 준비해주세요:</p>';
+  for (var i = 0; i < requirements.length; i++) html += '<div class="requirement-item">' + (i + 1) + '. ' + requirements[i] + '</div>';
+  if (selectedChangeType === '제조방법변경' && changeData[selectedChangeType].subTypes['공정관리시험변경'] && changeData[selectedChangeType].subTypes['공정관리시험변경'].subTypes[selectedSubType]) {
+    html += '<div class="alert warning"><strong>⚠️ 완제 공정관리시험 변경 안내사항:</strong><br>';
+    if (selectedSubType === '공정관리시험기준변경') {
+      if (categoryName === 'AR') {
+        notes.push('1,2,3 조건을 모두 만족하여 AR(연차보고) 변경으로 분류됩니다');
+        notes.push('공정관리 기준 범위 내 변경이며 시험방법에는 변경이 없습니다');
+      } else if (categoryName === 'Cmaj') {
+        notes.push('조건 2만 만족하여 Cmaj 변경으로 분류됩니다');
+        notes.push('의약품동등성시험 자료가 필요할 수 있습니다');
+      }
+    } else if (selectedSubType === '공정관리시험항목삭제') {
+      notes.push('충족조건을 만족하여 AR(연차보고) 변경 수준입니다');
+      notes.push('삭제 항목이 제제의 주요 품질특성에 미치는 영향이 없거나 적어야 합니다');
+    } else if (selectedSubType === '공정관리시험기준추가및방법변경') {
+      notes.push('규격을 충족하여 AR(연차보고) 변경 수준입니다');
+      notes.push('새로운 시험법 사용 시 밸리데이션 자료가 필요합니다');
+    }
+    html += notes.map(function(n){ return '• ' + n; }).join('<br>') + '</div>';
+  }
+  if (selectedChangeType === '주성분제조원변경') {
+    html += '<div class="alert warning"><strong>⚠️ 중요 안내사항:</strong><br>';
+    notes.push('주성분 제조원 변경 시 제조방법 변경 자료도 함께 구비 필요합니다');
+    notes.push('제조방법 CTD 미전환일 경우 제조방법 CTD 작성 필요합니다');
+    if (selectedDrugType === '합성의약품') {
+      notes.push('결정형, 용해도, 입자도 차이에 따라 비교용출 시험 조건이 달라집니다');
+      notes.push('차이 있는 경우: 고시조건 비교용출');
+      notes.push('차이 없는 경우: 기시조건 비교용출');
+      if (selectedSubType === '원료의약품제조공정변경') {
+        if (categoryName === 'IR') notes.push('1~9번 조건을 모두 만족하여 IR 변경 수준입니다');
+        else if (categoryName === 'Cmin') notes.push('1,2,3,5,6,7,9번 조건 또는 1-6번 조건을 만족하여 Cmin 변경 수준입니다');
+        else if (categoryName === 'Cmaj') notes.push('IR, Cmin 조건을 만족하지 않아 Cmaj 변경 수준입니다');
+      }
+    } else if (selectedDrugType === '한약(생약)제제') {
+      notes.push('한약(생약)제제의 경우 성분프로파일 동등성 평가가 중요합니다');
+      if (selectedSubType === '원료의약품제조공정변경') {
+        if (categoryName === 'IR') notes.push('1~5번 조건을 모두 만족하여 IR 변경 수준입니다');
+        else if (categoryName === 'Cmin') notes.push('건조방식 변경 또는 수율변경으로 Cmin 변경 수준입니다');
+        else if (categoryName === 'Cmaj') notes.push('주요 조건을 만족하지 않아 Cmaj 변경 수준입니다');
+      } else {
+        notes.push('모든 조건을 만족해야 IR 수준, 하나라도 불만족시 Cmaj 수준 변경');
+      }
+    }
+    html += notes.map(function(n){ return '• ' + n; }).join('<br>') + '</div>';
+  }
+  if (selectedChangeType === '완제제조원변경') {
+    var localNotes = ['제조원 변경 시 제조방법 변경에 해당하는 사항도 병행 검토 및 서류 제출이 필요합니다'];
+    if (categoryName === 'Cmin') {
+      localNotes.push('1차 포장제조소 변경 수반될 경우 P.8.2 안정성 시험 계획 및 이행서약 제출 필요합니다');
+      localNotes.push('Cmin 변경으로 분류됩니다');
+    } else if (categoryName === 'Cmaj') {
+      localNotes.push('의동시험 수준은 제조방법 변경 수준에 따라 변동됩니다');
+      localNotes.push('Cmaj 변경으로 분류됩니다');
+    }
+    notes = notes.concat(localNotes);
+    html += '<div class="alert warning"><strong>⚠️ 중요 안내사항:</strong><br>' + localNotes.map(function(n){ return '• ' + n; }).join('<br>') + '</div>';
+  }
+  requirementsDiv.innerHTML = html;
+  requirementsDiv.style.display = 'block';
+  currentStep = 'requirements';
+  captureCurrentResult(categoryName, requirements, notes, exportSafeArray(data.conditions));
+  setExportUiVisible(true);
+  addMessage('필요한 서류 목록을 확인해주세요!', 'bot');
+};
+
+showPhysicalChemicalChangeRegistration = function() {
+  document.getElementById('conditionsCheck').style.display = 'none';
+  var requirementsDiv = document.getElementById('requirements');
+  var html = '<h3>📋 변경등록 대상 - 물리화학적성질 변경</h3><p><strong>4개 조건이 모두 No로 "변경등록" 대상입니다.</strong></p><p>다음 서류들을 준비해주세요:</p><div class="requirement-item">1. DMF 업데이트본</div><div class="requirement-item">2. 변경대비표</div><div class="requirement-item">3. 기타 서류 (케이스별 검토 필요)</div><div class="alert warning"><strong>⚠️ 안내사항:</strong><br>• 기타 서류는 변경 내용에 따라 달라질 수 있습니다<br>• 구체적인 서류 목록은 담당자와 상담 후 확정하시기 바랍니다</div>';
+  requirementsDiv.innerHTML = html;
+  requirementsDiv.style.display = 'block';
+  currentStep = 'requirements';
+  captureCurrentResult('변경등록', ['DMF 업데이트본','변경대비표','기타 서류 (케이스별 검토 필요)'], ['기타 서류는 변경 내용에 따라 달라질 수 있습니다','구체적인 서류 목록은 담당자와 상담 후 확정하시기 바랍니다'], ['약전, 식약처장 인정 공정서 및 의약품집 개정에 따른 변경','명칭(일반명, 화학명), CAS NO. 변경','의약품의 성상 표기에 대한 가이드라인에 따른 표기방법 변경(예 : 백색->흰색)','유연물질에 관한 자료 변경(추가)']);
+  setExportUiVisible(true);
+};
+
+showValidityReview = function() {
+  document.getElementById('conditionsCheck').style.display = 'none';
+  var requirementsDiv = document.getElementById('requirements');
+  var html = '<h3>📋 타당성 검토 필요</h3><p><strong>기준 변경에 대한 타당성 검토 후 변경 가능 여부 판단 가능</strong></p><p>다음 사항을 검토해주세요:</p><div class="requirement-item">1. 변경 사유의 타당성</div><div class="requirement-item">2. 변경이 제품 품질에 미치는 영향</div><div class="requirement-item">3. 관련 규정 및 가이드라인 준수 여부</div><div class="requirement-item">4. 추가 시험 자료의 필요성</div><div class="alert warning"><strong>⚠️ 안내사항:</strong><br>• 조건을 만족하지 않는 경우 별도의 타당성 검토가 필요합니다<br>• 담당자와 상담하여 구체적인 변경 방안을 검토하시기 바랍니다<br>• 필요시 추가 시험 자료나 근거 서류가 요구될 수 있습니다</div>';
+  requirementsDiv.innerHTML = html;
+  requirementsDiv.style.display = 'block';
+  currentStep = 'requirements';
+  captureCurrentResult('타당성 검토 필요', ['변경 사유의 타당성','변경이 제품 품질에 미치는 영향','관련 규정 및 가이드라인 준수 여부','추가 시험 자료의 필요성'], ['조건을 만족하지 않는 경우 별도의 타당성 검토가 필요합니다','담당자와 상담하여 구체적인 변경 방안을 검토하시기 바랍니다','필요시 추가 시험 자료나 근거 서류가 요구될 수 있습니다'], exportSafeArray((getSelectedDataForExport() || {}).conditions));
+  setExportUiVisible(true);
+};
+
+var __orig_resetChat_patch = resetChat;
+resetChat = function() { resetExportState(true); __orig_resetChat_patch(); };
+var __orig_goBack_patch = goBack;
+goBack = function() { resetExportState(false); __orig_goBack_patch(); };
+var __orig_selectChangeType_patch = selectChangeType;
+selectChangeType = function(changeType) { resetExportState(false); __orig_selectChangeType_patch(changeType); };
+var __orig_selectSubType_patch = selectSubType;
+selectSubType = function(subType) { resetExportState(false); __orig_selectSubType_patch(subType); };
+var __orig_selectDrugType_patch = selectDrugType;
+selectDrugType = function(drugType) { resetExportState(false); __orig_selectDrugType_patch(drugType); };
+var __orig_showConditionsCheck_patch = showConditionsCheck;
+showConditionsCheck = function() { resetExportState(false); __orig_showConditionsCheck_patch(); };
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
